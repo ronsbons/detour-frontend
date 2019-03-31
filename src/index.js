@@ -7,6 +7,7 @@ import App from './components/App.js';
 import configureStore from './configureStore.js';
 
 import './styles/index.css';
+import 'bulma/css/bulma.css'
 
 import * as serviceWorker from './serviceWorker';
 
