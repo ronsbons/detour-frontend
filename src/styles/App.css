@@ -1,0 +1,44 @@
+.carousel {
+  position: relative;
+}
+
+.company-hero {
+  filter: drop-shadow(0 0 6px #000);
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 45%;
+  z-index: 1;
+}
+
+.carousel-slide {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+.carousel-africa {
+  background-image: url('../images/mike-holford-274691-unsplash.jpg');
+}
+
+.carousel-asia {
+  background-image: url('../images/chastagner-thierry-694402-unsplash.jpg');
+}
+
+.carousel-aus {
+  background-image: url('../images/alex-wong-46425-unsplash.jpg');
+}
+
+.carousel-europe {
+  background-image: url('../images/anastasia-dulgier-1155961-unsplash.jpg');
+}
+
+.carousel-namer {
+  background-image: url('../images/tim-foster-601009-unsplash.jpg');
+}
+
+.carousel-samer {
+  background-image: url('../images//agustin-diaz-185846-unsplash.jpg');
+}
