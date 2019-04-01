@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import NavBar from './NavBar/NavBar.js';
-import Carousel from './Carousel/Carousel.js';
-import About from './About.js';
-import LocationList from './Location/LocationList.js';
+import HomeContainer from '../containers/HomeContainer.js';
+import Footer from './Footer.js';
 
 import '../styles/App.css';
 
@@ -20,9 +20,14 @@ class App extends Component {
     return (
       <div className="app-container">
         <NavBar />
-        <Carousel />
-        <About />
-        <LocationList />
+        <Switch>
+          <Route path="/"
+                render={() => {
+                  return <HomeContainer />;
+                }}
+          />
+        </Switch>
+        <Footer />
       </div>
     );
   }

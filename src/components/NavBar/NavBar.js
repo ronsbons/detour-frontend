@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // connects component to actions
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // import userauth component
 import UserAuth from './UserAuth.js';
