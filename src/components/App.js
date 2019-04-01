@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import NavBar from './NavBar/NavBar.js';
-import Carousel from './Carousel.js';
+import Carousel from './Carousel/Carousel.js';
+import About from './About.js';
+import LocationList from './Location/LocationList.js';
 
 import '../styles/App.css';
 
@@ -19,6 +21,8 @@ class App extends Component {
       <div className="app-container">
         <NavBar />
         <Carousel />
+        <About />
+        <LocationList />
       </div>
     );
   }
