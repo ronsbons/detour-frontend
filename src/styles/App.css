@@ -1,5 +1,9 @@
 .home-content {
-  padding: 5vw;
+  padding: 0 5vw;
+}
+
+.about {
+  padding-top: 2.5em;
 }
 
 .subtitle {
