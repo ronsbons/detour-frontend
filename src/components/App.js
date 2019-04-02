@@ -10,6 +10,7 @@ import Footer from './Footer.js';
 import '../styles/App.css';
 
 class App extends Component {
+  // regions state lives here so can be accessed by NavBar and by HomeContainer
   state = {
     regions: [
       {
