@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from './NavBar/NavBar.js';
 import HomeContainer from '../containers/HomeContainer.js';
 import RegionContainer from '../containers/RegionContainer.js';
+import CountryContainer from '../containers/CountryContainer.js';
 import Footer from './Footer.js';
 
 import '../styles/App.css';
@@ -67,6 +68,11 @@ class App extends Component {
           <Route path="/region"
                 render={() => {
                   return <RegionContainer />;
+                }}
+          />
+          <Route path="/country"
+                render={() => {
+                  return <CountryContainer />;
                 }}
           />
         </Switch>
