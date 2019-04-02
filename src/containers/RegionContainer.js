@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+// import nested CountrySquare component
 import CountrySquare from '../components/Location/CountrySquare.js';
+// import CountryModel for axios call
 import CountryModel from '../models/CountryModel.js';
 
 class RegionContainer extends Component {
-  // set countries state in this component, because the data only needs to be accessed in this component
+  // set local state to hold the data received from axios call
+  // set state in this component, because the data only needs to be accessed in this component
   state = {
     countries: [],
   };
@@ -14,30 +17,30 @@ class RegionContainer extends Component {
   // function holding axios call to backend to get countries with region_id that matches the currentRegion's (from store) id
   getCountries = () => {
     CountryModel.getCountriesByRegion(this.props.currentRegion.id)
-    .then(response => {
-      console.log(response.data);
-      // adds found countries to this.state
-      this.setState({
-        countries: response.data
+      .then(response => {
+        console.log(response.data);
+        // adds found countries to this.state
+        this.setState({
+          countries: response.data
+        });
+        console.log(this.state.countries);
+      })
+      .catch(error => {
+        console.log(`RegionContainer error when getting countries by region: ${error}`);
       });
-      console.log(this.state.countries);
-    })
-    .catch(error => {
-      console.log(`RegionContainer componentDidMount error when getting countries by region: ${error}`);
-    });
-  }
+  };
 
   componentDidMount() {
     // get region's countries upon first visit/mount to '/region'
     this.getCountries();
-  }
+  };
 
   // performs another axios call to get countries to update the component b/c store, therefore props, changed
   componentDidUpdate(prevProps) {
     if (this.props.currentRegion.id !== prevProps.currentRegion.id) {
       this.getCountries();
-    }
-  }
+    };
+  };
 
   render() {
     return (
@@ -54,10 +57,9 @@ class RegionContainer extends Component {
 const mapStateToProps = (store) => {
   return {
     currentRegion: store.location
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps
 )(RegionContainer)
-// export default RegionContainer;
