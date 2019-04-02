@@ -3,7 +3,17 @@ export function currentRegion (region) {
     type: 'CURRENT_REGION',
     region: {
       id: region._id,
-      name: region.locationName  
-    }
-  }
-}
+      name: region.regionName  
+    },
+  };
+};
+
+export function currentCountry (country) {
+  return {
+    type: 'CURRENT_COUNTRY',
+    country: {
+      id: country._id,
+      name: country.countryName
+    },
+  };
+};
