@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 // import userauth component
 import UserAuth from './UserAuth.js';
 // import any action needed from actions folder
-// [] NOT SURE IF THIS IS THE CORRECT PATH
-// import { action } from '.../actions'
+import { currentRegion } from '../../actions/locationActions.js';;
 
 class NavBar extends Component {
   render() {
@@ -48,12 +47,14 @@ class NavBar extends Component {
               <a className="navbar-link">Regions</a>
 
               <div className="navbar-dropdown">
-                <Link className="navbar-item" to="/region">Africa</Link>
-                <Link className="navbar-item" to="/region">Asia</Link>
-                <Link className="navbar-item" to="/region">Australia</Link>
-                <Link className="navbar-item" to="/region">Europe</Link>
-                <Link className="navbar-item" to="/region">North America</Link>
-                <Link className="navbar-item" to="/region">South America</Link>
+                {this.props.regions.map(region => (
+                  <Link className="navbar-item"
+                        to="/region"
+                        key={region._id}
+                        onClick={() => this.props.currentRegion(region)}>
+                    {region.regionName}
+                  </Link>
+                ))}
               </div>
             </div>  {/* end of Regions dropdown */}
 
@@ -82,6 +83,6 @@ export default connect(
   // connects mapStateToProps because we have cause/need to access state
   mapStateToProps,
   // connects action we need to access in this component
-  // { toggleUser }
+  { currentRegion }
 // export NavBar component with the above connected to it
 )(NavBar);
