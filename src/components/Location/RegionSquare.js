@@ -18,7 +18,7 @@ class RegionSquare extends Component {
             {/* sends region object clicked on to change state */}
             <Link to="/region"
                   onClick={() => this.props.currentRegion(region)}>
-              <figure className="image is-128x128">
+              <figure className="image is-256x256">
                 <img src={region.regionPhoto} alt={region.regionName} />
               </figure>
               <h6 className="subtitle is-6">{region.regionName}</h6>

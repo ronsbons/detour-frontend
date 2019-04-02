@@ -18,7 +18,7 @@ class CountrySquare extends Component {
             {/* sends country object clicked on to change state */}
             <Link to="/country"
                   onClick={() => this.props.currentCountry(country)}>
-              <figure className="image is-128x128">
+              <figure className="image is-256x256">
                 <img src={country.countryPhoto} alt={country.countryName} />
               </figure>
               <h6 className="subtitle is-6">{country.countryName}</h6>
