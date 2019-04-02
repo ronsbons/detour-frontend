@@ -11,20 +11,32 @@ class RegionContainer extends Component {
     countries: [],
   };
 
-  componentDidMount() {
-    // axios call to backend to get countries with region_id that matches the currentRegion's (from store) id
+  // function holding axios call to backend to get countries with region_id that matches the currentRegion's (from store) id
+  getCountries = () => {
     CountryModel.getCountriesByRegion(this.props.currentRegion.id)
-      .then(response => {
-        console.log(response.data);
-        // adds found countries to this.state
-        this.setState({
-          countries: response.data
-        });
-        console.log(this.state.countries);
-      })
-      .catch(error => {
-        console.log(`RegionContainer componentDidMount error when getting countries by region: ${error}`);
+    .then(response => {
+      console.log(response.data);
+      // adds found countries to this.state
+      this.setState({
+        countries: response.data
       });
+      console.log(this.state.countries);
+    })
+    .catch(error => {
+      console.log(`RegionContainer componentDidMount error when getting countries by region: ${error}`);
+    });
+  }
+
+  componentDidMount() {
+    // get region's countries upon first visit/mount to '/region'
+    this.getCountries();
+  }
+
+  // performs another axios call to get countries to update the component b/c store, therefore props, changed
+  componentDidUpdate(prevProps) {
+    if (this.props.currentRegion.id !== prevProps.currentRegion.id) {
+      this.getCountries();
+    }
   }
 
   render() {
