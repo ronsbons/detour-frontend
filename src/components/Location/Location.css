@@ -1,7 +1,3 @@
-.tile.is-child {
-  text-align: center;
-}
-
-.tile.is-ancestor {
-  margin: 20px 0 !important;
+.location-columns {
+  margin: 2.5em 0 !important;
 }

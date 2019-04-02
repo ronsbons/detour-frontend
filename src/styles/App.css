@@ -1,5 +1,10 @@
-.home-content {
-  padding: 5vw;
+.home-content,
+.region-container {
+  padding: 0 5vw;
+}
+
+.about {
+  padding-top: 2.5em;
 }
 
 .subtitle {
