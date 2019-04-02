@@ -4,6 +4,7 @@ const endPoint = 'http://localhost:3001/country';
 
 class CountryModel {
   static getCountriesByRegion(regionId) {
+    // axios call path matches backend routes
     let request = axios.get(`${endPoint}/region/${regionId}`);
     console.log(`getCountriesByRegion request: ${request}`)
     return request;
