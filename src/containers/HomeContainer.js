@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Carousel from '../components/Carousel/Carousel.js';
 import About from '../components/About.js';
-import Location from '../components/Location/Location.js';
+import RegionSquare from '../components/Location/RegionSquare';
 
 class HomeContainer extends Component {
   // [] FIGURE OUT IMAGE PATHS
@@ -10,33 +10,33 @@ class HomeContainer extends Component {
     regions: [
       {
         _id: 1,
-        locationName: 'Africa',
-        locationPhoto: '/src/images/sho-hatakeyama-117306-unsplash.jpg'
+        regionName: 'Africa',
+        regionPhoto: '/src/images/sho-hatakeyama-117306-unsplash.jpg'
       },
       {
         _id: 2,
-        locationName: 'Asia',
-        locationPhoto: '/src/images/lisheng-chang-396821-unsplash.jpg'
+        regionName: 'Asia',
+        regionPhoto: '/src/images/lisheng-chang-396821-unsplash.jpg'
       },
       {
         _id: 3,
-        locationName: 'Australia',
-        locationPhoto: '/src/images/christopher-burns-429015-unsplash.jpg'
+        regionName: 'Australia',
+        regionPhoto: '/src/images/christopher-burns-429015-unsplash.jpg'
       },
       {
         _id: 4,
-        locationName: 'Europe',
-        locationPhoto: '/src/images/jack-ward-522993-unsplash.jpg'
+        regionName: 'Europe',
+        regionPhoto: '/src/images/jack-ward-522993-unsplash.jpg'
       },
       {
         _id: 5,
-        locationName: 'North America',
-        locationPhoto: '/src/images/guillaume-jaillet-421771-unsplash.jpg'
+        regionName: 'North America',
+        regionPhoto: '/src/images/guillaume-jaillet-421771-unsplash.jpg'
       },
       {
         _id: 6,
-        locationName: 'South America',
-        locationPhoto: '/src/images/agustin-diaz-185846-unsplash.jpg'
+        regionName: 'South America',
+        regionPhoto: '/src/images/agustin-diaz-185846-unsplash.jpg'
       }
     ]
   };
@@ -47,7 +47,7 @@ class HomeContainer extends Component {
         <Carousel />
         <div className="home-content">
           <About />
-          <Location locations={this.state.regions} />
+          <RegionSquare regions={this.state.regions} />
         </div>
       </div>
     );
