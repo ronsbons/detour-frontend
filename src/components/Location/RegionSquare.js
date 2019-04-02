@@ -13,7 +13,7 @@ class RegionSquare extends Component {
 
         {/* loop through the locations passed down from HomeContainer */}
         {this.props.regions.map(region => (
-          <div className="column is-one-third" key={region.regionName}>
+          <div className="column is-one-third" key={region._id}>
             {/* .currentRegion is the action imported in */}
             {/* sends region object clicked on to change state */}
             <Link to="/region"

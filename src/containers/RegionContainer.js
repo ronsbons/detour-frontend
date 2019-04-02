@@ -30,7 +30,6 @@ class RegionContainer extends Component {
   render() {
     return (
       <div className="region-container">
-        <p>hi</p>
         <h3 className="subtitle is-3">{ this.props.currentRegion.name }</h3>
         {/* pass found countries to CountrySquare to be mapped */}
         <CountrySquare countries={this.state.countries} />
