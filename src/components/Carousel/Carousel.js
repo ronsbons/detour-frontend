@@ -25,32 +25,26 @@ class Carousel extends Component {
         <Slider {...settings}>
           {/* slide 1 */}
           <div className="carousel-slide carousel-africa">
-            <img src="./images/mike-holford-274691-unsplash.jpg" alt="lion by Mike Holford" />
           </div>
 
           {/* slide 2 */}
           <div className="carousel-slide carousel-asia">
-            <img src="./images/chastagner-thierry-694402-unsplash.jpg" alt="round door by Chastagner Thierry" />
           </div>
 
           {/* slide 3 */}
           <div className="carousel-slide carousel-aus">
-            <img src="./images/alex-wong-46425-unsplash.jpg" alt="view of Sydney Harbour by Alex Wong" />
           </div>
 
           {/* slide 4 */}
           <div className="carousel-slide carousel-europe">
-            <img src="./images/anastasia-dulgier-1155961-unsplash.jpg" alt="houses on a canal by Anastasia Dulgier" />
           </div>
 
           {/* slide 5 */}
           <div className="carousel-slide carousel-namer">
-            <img src="./images/tim-foster-601009-unsplash.jpg" alt="Golden Gate Bridge by Tim Foster" />
           </div>
 
           {/* slide 6 */}
           <div className="carousel-slide carousel-samer">
-            <img src="./images/agustin-diaz-185846-unsplash.jpg" alt="Sugarloaf Mountain by Agustin Diaz" />
           </div>
         </Slider>
       </div>
