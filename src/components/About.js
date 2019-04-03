@@ -5,22 +5,22 @@ class About extends Component {
     return (
       <div className="about">
         <div className="columns">
-          <div className="column">
+          <div className="column image is-256x256">
             <img src="./images/contiki-logo-vector.svg" alt="Contiki logo" />
             <h4 className="subtitle is-4">Contiki</h4>
           </div>
 
-          <div className="column">
+          <div className="column image is-256x256">
             <img src="./images/g-adventures-seeklogo.com.svg" alt="G Adventures logo" />
             <h4 className="subtitle is-4">G Adventures</h4>
           </div>
 
-          <div className="column">
+          <div className="column image is-256x256">
             <img src="./images/flashpack.png" alt="Flash Pack logo" />
             <h4 className="subtitle is-4">Flash Pack</h4>
           </div>
 
-          <div className="column">
+          <div className="column image is-256x256">
             <img src="./images/topdeck-travel-logo.png" alt="Topdeck logo" />
             <h4 className="subtitle is-4">Topdeck</h4>
           </div>

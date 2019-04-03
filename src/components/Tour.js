@@ -5,7 +5,9 @@ class Tour extends Component {
     return (
       <div className="column is-one-fifth">
         <div className="tour-cell">
-          <h5 className="subtitle is-5">{this.props.tour.company}</h5>
+          <figure className="image is-128x128">
+            <img src={this.props.tour.company} alt="tour company logo" />
+          </figure>
         </div>
 
         <div className="tour-cell">
