@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// import userauth component
-import UserAuth from './UserAuth.js';
 // import any action needed from actions folder
-import { currentRegion } from '../../actions/locationActions.js';;
+import { currentRegion } from '../actions/locationActions.js';;
 
 class NavBar extends Component {
   render() {
@@ -59,8 +57,9 @@ class NavBar extends Component {
             </div>  {/* end of Regions dropdown */}
 
             {/* {userNavItems} */}
-            {/* temporarily putting UserAuth, Profile, and Logout here until user log in is functional */}
-            <UserAuth />
+            
+            <Link className="navbar-item" to="/login">Log In/Sign Up</Link>
+            {/* temporarily putting Profile and Logout here until user log in is functional */}
             <Link className="navbar-item" to="/profile">Profile</Link>
             <a className="navbar-item">Log Out</a>
           </div>
