@@ -4,7 +4,7 @@ const defaultState = {
   name: 'Africa'
 }
 
-function currentLocation (state = defaultState, action) {
+function currentLocation(state = defaultState, action) {
   switch(action.type) {
     case 'CURRENT_REGION':
       const currentRegionState = {
