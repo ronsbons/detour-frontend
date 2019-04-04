@@ -12,6 +12,15 @@ class UserModel {
     console.log(`signUp request: ${request}`);
     return request;
   };
+
+  static login(username, password) {
+    let request = axios.post(`${endPoint}/login`, {
+      username: username,
+      password, password
+    });
+    console.log(`login request: ${request}`);
+    return request;
+  };
 };
 
 export default UserModel;
