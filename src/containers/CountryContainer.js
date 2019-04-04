@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 // import any nested component needed
 import Tour from '../components/Tour.js';
 // import any model needed for axios calls
-import TourModel from '../models/TourModel';
+import TourModel from '../models/TourModel.js';
+import ReviewModel from '../models/ReviewModel.js';
 
 import './Tour.css';
 
@@ -43,6 +44,7 @@ class CountryContainer extends Component {
     };
   };
 
+  // sets state for open/close modal
   openModal = (event) => {
     event.preventDefault();
     // upon click, change state.modal to true
@@ -58,6 +60,26 @@ class CountryContainer extends Component {
       isModalOpen: false,
     });
   };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event);
+
+    let rating = event.target[0].valueAsNumber;
+    let content = event.target[1].value;
+    console.log(`review info`, rating, content);
+
+    ReviewModel.addReview(content, rating, this.props.user._id, this.props.currentCountry.id)
+      .then( (response) => {
+        console.log(`addReview response: ${response.data.content}`);
+        // after adding a review, close modal
+        this.setState({
+          isModalOpen: false
+        });
+        // and perform axios call again to get all reviews for country
+      })
+  }
+
 
   render() {
     return (
@@ -92,17 +114,20 @@ class CountryContainer extends Component {
         </div>
 
         <h5 className="subtitle is-5">Reviews</h5>
+        {/* [] HIDE THIS BUTTON IF USER NOT LOGGED IN */}
         <button onClick={this.openModal}>Add a Review</button>
         {/* if this.state.modal is true ? set className to "is-active" : if not, set className to "" */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
           <div className="modal-background"></div>
           <div className="modal-content">
-            <form>
-              <label for="rating">Rating: </label>
-              <input type="number" name="rating" id="rating" />
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="rating">Rating: </label>
+              <input type="number" name="rating" min="1" max="5" id="rating" />
               
-              <label for="review-content">Review:</label>
+              <label htmlFor="review-content">Review:</label>
               <textarea name="content" id="review-content" cols="50" rows="20"></textarea>
+
+              <button type="submit">Submit</button>
             </form>
           </div>
           <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
@@ -117,6 +142,7 @@ class CountryContainer extends Component {
 const mapStateToProps = (store) => {
   return {
     currentCountry: store.location,
+    user: store.user,
   };
 };
 
