@@ -2,8 +2,13 @@ const jwt = require('jsonwebtoken');
 
 // get jwt token from localstorage
 let userToken = localStorage.getItem('token');
+
 // verify token against secret key to access user payload
-let verified = jwt.verify(userToken, 'essendon');
+let verified = '';
+if (userToken) {
+  verified = jwt.verify(userToken, 'essendon');
+};
+console.log(`verified ${verified.username}`);
 
 // if there is a token in localStorage, set defaultState to loggedin true
 const defaultState = userToken ? {
