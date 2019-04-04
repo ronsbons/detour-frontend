@@ -13,6 +13,12 @@ class ReviewModel {
     console.log(`addReview request: ${request}`);
     return request;
   };
+
+  static getReviewsByCountry(countryId) {
+    let request = axios.get(`${endPoint}/country/${countryId}`);
+    console.log(`getReviewsByCountry request: ${request}`);
+    return request;
+  };
 };
 
 export default ReviewModel;
