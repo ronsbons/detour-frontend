@@ -75,11 +75,21 @@ class ReviewsList extends Component {
   };
 
   render() {
+    // show Add Review button if user is logged in
+    let addReviewButton = [];
+
+    if (this.props.user.isLoggedIn) {
+      addReviewButton.push(
+        <button onClick={this.openModal}>Add a Review</button>
+      );
+    };
+
     return (
       <div>
         <h5 className="subtitle is-5">Reviews</h5>
-        {/* [] HIDE THIS BUTTON IF USER NOT LOGGED IN */}
-        <button onClick={this.openModal}>Add a Review</button>
+
+        { addReviewButton }
+
         {/* if this.state.modal is true ? set className to "is-active" : if not, set className to "" */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
           <div className="modal-background"></div>
