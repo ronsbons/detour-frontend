@@ -4,9 +4,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // import any action needed from actions folder
-import { currentRegion } from '../actions/locationActions.js';;
+import { currentRegion } from '../actions/locationActions.js';
+import { userLogOut } from '../actions/userActions.js';
 
 class NavBar extends Component {
+  // define handleLogout function
+  handleLogout = (event) => {
+    console.log('in handleLogout');
+    // clears localStorage of token
+    localStorage.clear();
+    // dispatches action userLogOut
+    this.props.userLogOut();
+  };
+
   render() {
     let userNavItems = [];
     
@@ -61,7 +71,7 @@ class NavBar extends Component {
             <Link className="navbar-item" to="/login">Log In/Sign Up</Link>
             {/* temporarily putting Profile and Logout here until user log in is functional */}
             <Link className="navbar-item" to="/profile">Profile</Link>
-            <a className="navbar-item">Log Out</a>
+            <a className="navbar-item" onClick={() => this.handleLogout()}>Log Out</a>
           </div>
         </div>
       </div>
@@ -73,15 +83,14 @@ class NavBar extends Component {
 const mapStateToProps = (store) => {
   return {
     // Sets props.user equal to store.user
-    // [] TBD, MAY NEED TO CHANGE THIS STATE ITEM?
-    user: store.user
+    user: store.user,
   };
 };
 
 export default connect(
   // connects mapStateToProps because we have cause/need to access state
   mapStateToProps,
-  // connects action we need to access in this component
-  { currentRegion }
+  // connects actions we need to access in this component
+  { currentRegion, userLogOut }
 // export NavBar component with the above connected to it
 )(NavBar);
