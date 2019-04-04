@@ -64,10 +64,10 @@ class UserAuth extends Component {
           <h4 className="subtitle is-4 has-text-centered">Log In</h4>
           <form onSubmit={this.handleLogin}>
             {/* label for corresponds with input id */}
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <input type="text" name="username" placeholder="username" id="username" />
 
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input type="password" name="password" placeholder="password" id="password" />
 
             <button type="submit">Log In</button>
@@ -78,13 +78,13 @@ class UserAuth extends Component {
         <div className="column">
           <h4 className="subtitle is-4 has-text-centered">Sign Up</h4>
           <form onSubmit={this.handleSignup}>
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <input type="text" name="username" placeholder="username" id="username" />
 
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" name="email" placeholder="email" id="email" />
 
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input type="password" name="password" placeholder="password" id="password" />
             
             <button type="submit">Sign Up</button> 
