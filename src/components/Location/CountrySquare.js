@@ -32,13 +32,6 @@ class CountrySquare extends Component {
   }
 }
 
-// this component needs access to the store in order to change it onClick
-// [] CORRECT?
-// const mapStateToProps = (store) => {
-//   return {
-//     location: store.location
-//   }
-// }
 
 export default connect(
   null,
