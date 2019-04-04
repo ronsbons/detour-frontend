@@ -16,7 +16,7 @@ class UserModel {
   static login(username, password) {
     let request = axios.post(`${endPoint}/login`, {
       username: username,
-      password, password
+      password: password,
     });
     console.log(`login request: ${request}`);
     return request;

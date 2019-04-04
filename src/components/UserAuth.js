@@ -21,7 +21,6 @@ class UserAuth extends Component {
       .then(response => {
         console.log(response.data);
         // store jwt in local storage token
-        // [] should store jwt in store if i can figure out redux-persist
         localStorage.token = response.data.signedJwt;
         
         // sends new user data to action isUserLoggedIn
@@ -46,9 +45,8 @@ class UserAuth extends Component {
       .then(response => {
         console.log(response.data);
         // store jwt in localstorage token
-        // should store jwt in store if i can figure out redux-persist
         localStorage.token = response.data.signedJwt;
-        debugger;
+
         // sends logged in user data to action
         this.props.isUserLoggedIn(response.data.user);
       })
