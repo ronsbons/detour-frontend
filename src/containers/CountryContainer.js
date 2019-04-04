@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 // import any nested component needed
 import Tour from '../components/Tour.js';
+import ReviewsList from '../components/Reviews/ReviewsList.js';
 // import any model needed for axios calls
 import TourModel from '../models/TourModel.js';
-import ReviewModel from '../models/ReviewModel.js';
 
 import './Tour.css';
 
@@ -16,7 +16,6 @@ class CountryContainer extends Component {
   // set state in this component, because the data only needs to be accessed in this component
   state = {
     tours: [],
-    isModalOpen: false,
   };
 
   getTours = () => {
@@ -29,6 +28,7 @@ class CountryContainer extends Component {
       })
       .catch(error => {
         console.log(`CountryContainer error when getting tours by country: ${error}`);
+        // [] NEED USER-FACING ERROR MESSAGE
       });
   };
 
@@ -43,42 +43,6 @@ class CountryContainer extends Component {
       this.getTours();
     };
   };
-
-  // sets state for open/close modal
-  openModal = (event) => {
-    event.preventDefault();
-    // upon click, change state.modal to true
-    this.setState({
-      isModalOpen: true,
-    });
-  };
-
-  closeModal = (event) => {
-    event.preventDefault();
-    // upon click, change state.modal to false
-    this.setState({
-      isModalOpen: false,
-    });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-
-    let rating = event.target[0].valueAsNumber;
-    let content = event.target[1].value;
-    console.log(`review info`, rating, content);
-
-    ReviewModel.addReview(content, rating, this.props.user._id, this.props.currentCountry.id)
-      .then( (response) => {
-        console.log(`addReview response: ${response.data.content}`);
-        // after adding a review, close modal
-        this.setState({
-          isModalOpen: false
-        });
-        // and perform axios call again to get all reviews for country
-      })
-  }
 
 
   render() {
@@ -113,36 +77,17 @@ class CountryContainer extends Component {
           ))}
         </div>
 
-        <h5 className="subtitle is-5">Reviews</h5>
-        {/* [] HIDE THIS BUTTON IF USER NOT LOGGED IN */}
-        <button onClick={this.openModal}>Add a Review</button>
-        {/* if this.state.modal is true ? set className to "is-active" : if not, set className to "" */}
-        <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
-          <div className="modal-background"></div>
-          <div className="modal-content">
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="rating">Rating: </label>
-              <input type="number" name="rating" min="1" max="5" id="rating" />
-              
-              <label htmlFor="review-content">Review:</label>
-              <textarea name="content" id="review-content" cols="50" rows="20"></textarea>
-
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-          <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
-        </div>  {/* end of modal div */}
+        <ReviewsList />
       </div>
     );
   }
 }
 
 
-// puts the location object in store into this.props.currentCountry
+// puts the location and user object in store into this.props.currentCountry/.user
 const mapStateToProps = (store) => {
   return {
     currentCountry: store.location,
-    user: store.user,
   };
 };
 
