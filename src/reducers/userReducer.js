@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 // get jwt token from localstorage
 let userToken = localStorage.getItem('token');
 
-// verify token against secret key to access user payload
+// only verify token against secret key to access user payload if there is a token
 let verified = '';
 if (userToken) {
   verified = jwt.verify(userToken, 'essendon');

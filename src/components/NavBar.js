@@ -20,21 +20,24 @@ class NavBar extends Component {
   render() {
     let userNavItems = [];
     
-    // [] TEST THIS SECTION ONCE WE HAVE USER AUTH WORKING AND IN STATE/STORE
     // if user IS logged in
-    // if (this.props.user.isLoggedIn) {
-    //   userNavItems.push(
-    //     <div className="navbar-item">
-    //       <Link className="navbar-item" to="/profile">Profile</Link>
-    //       <a className="navbar-item">Log Out</a>              
-    //     </div>
-    //   )
-    // } else {
+    if (this.props.user.isLoggedIn) {
+      // put Profile and Log Out links into userNavItems
+      userNavItems.push(
+        <div className="navbar-item" key="loggedInNav">
+          <Link className="navbar-item" to="/profile">Profile</Link>
+          <a className="navbar-item" onClick={() => this.handleLogout()}>Log Out</a>
+        </div>
+      );
+    } else {
     // if user is NOT logged in
-    //   userNavItems.push(
-    //     <UserAuth />
-    //   )
-    // };
+      userNavItems.push(
+        // put Log In/SignUp link in
+        <Link className="navbar-item"
+              to="/login"
+              key="loggedOutNav">Log In/Sign Up</Link>
+      );
+    };
 
     return (
       <div className="navbar" role="navigation" aria-label="main-navigation">
@@ -66,17 +69,13 @@ class NavBar extends Component {
               </div>
             </div>  {/* end of Regions dropdown */}
 
-            {/* {userNavItems} */}
-            
-            <Link className="navbar-item" to="/login">Log In/Sign Up</Link>
-            {/* temporarily putting Profile and Logout here until user log in is functional */}
-            <Link className="navbar-item" to="/profile">Profile</Link>
-            <a className="navbar-item" onClick={() => this.handleLogout()}>Log Out</a>
-          </div>
-        </div>
-      </div>
-    )
-  }
+            {/* display NavLinks depending on if user is logged in/out */}
+            { userNavItems }
+          </div>  {/* end of navbar-end div */}
+        </div>  {/* end of navbarBasicExample div */}
+      </div>  // end of navbar div
+    )  // end of return
+  }  // end of render
 }
 
 // Will need to access store (const mapStateToProps function) to get if user is logged in or not
