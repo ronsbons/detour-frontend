@@ -16,7 +16,7 @@ class ReviewsList extends Component {
     isModalOpen: false,
   };
 
-  // sets state for open/close modal
+  // define functions to set state for open/close modal
   openModal = (event) => {
     event.preventDefault();
     // upon click, change state.modal to true
@@ -80,7 +80,7 @@ class ReviewsList extends Component {
 
     if (this.props.user.isLoggedIn) {
       addReviewButton.push(
-        <button onClick={this.openModal}>Add a Review</button>
+        <button onClick={this.openModal} key="add-button">Add a Review</button>
       );
     };
 
@@ -90,16 +90,24 @@ class ReviewsList extends Component {
 
         { addReviewButton }
 
+        {/* modal to hold review form */}
         {/* if this.state.modal is true ? set className to "is-active" : if not, set className to "" */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
           <div className="modal-background"></div>
           <div className="modal-content">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="rating">Rating: </label>
-              <input type="number" name="rating" min="1" max="5" id="rating" />
+              <input type="number"
+                name="rating"
+                min="1"
+                max="5"
+                id="rating" />
               
               <label htmlFor="review-content">Review:</label>
-              <textarea name="content" id="review-content" cols="50" rows="20"></textarea>
+              <textarea name="content"
+                id="review-content"
+                cols="50"
+                rows="20"></textarea>
 
               <button type="submit">Submit</button>
             </form>
