@@ -50,6 +50,7 @@ class ReviewsList extends Component {
           isModalOpen: false
         });
         // and perform axios call again to get all reviews for country
+        this.getReviews();
       })
       .catch( (error) => {
         console.log(`add review error: ${error}`);
@@ -70,6 +71,25 @@ class ReviewsList extends Component {
         });
       }).catch( (error) => {
         console.log(`getReviews error`);
+        // [] NEED USER-FACING ERROR MESSAGE
+      });
+  };
+
+  deleteReview = (reviewId) => {
+    ReviewModel.deleteReview(reviewId)
+      .then( (response) => {
+        console.log(`deleteReview response: ${response.data}`);
+        // singular review represents single review in this.state.reviews
+        let reviews = this.state.reviews.filter( (review) => {
+          console.log('filtering reviews');
+          // filter this.state.reviews to be all the reviews except the review that was deleted
+          return review._id !== response.data._id;
+        });
+        this.setState({
+          reviews: reviews,
+        });
+      }).catch( (error) => {
+        console.log(`delete review error: ${error}`);
         // [] NEED USER-FACING ERROR MESSAGE
       });
   };
@@ -116,7 +136,7 @@ class ReviewsList extends Component {
         </div>  {/* end of modal div */}
 
         {this.state.reviews.map(review => (
-          <Review review={review} key={review._id} />
+          <Review review={review} deleteReview={this.deleteReview} key={review._id} />
         ))}
       </div>
     );

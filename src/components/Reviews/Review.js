@@ -41,7 +41,7 @@ class Review extends Component {
       .then( (response) => {
         console.log(`editReview response: ${response.data.content}`);
         // close modal/form after submit
-        // and set this.state.review to the edited review in order to re-render the page with the changes
+        // and change local state to the edited review in order to re-render the page with the changes
         this.setState({
           isModalOpen: false,
           review: response.data,
@@ -52,6 +52,12 @@ class Review extends Component {
       });
   };
 
+  handleDelete = (event) => {
+    event.preventDefault();
+    console.log(`in handleDelete`);
+    this.props.deleteReview(this.state.review._id);
+  };
+
   render() {
     // show Edit/Delete buttons is logged in user is author of review
     let modifyReviewButtons = [];
@@ -60,7 +66,7 @@ class Review extends Component {
       modifyReviewButtons.push(
         <div className="review-buttons is-pulled-right" key="modify-button">
           <button onClick={this.openModal}>Edit</button>
-          <button>Delete</button>
+          <button onClick={this.handleDelete}>Delete</button>
         </div>
       );
     };
