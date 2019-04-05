@@ -8,6 +8,18 @@ import { currentRegion } from '../actions/locationActions.js';
 import { userLogOut } from '../actions/userActions.js';
 
 class NavBar extends Component {
+  state = {
+    isNavBurgerActive: false,
+  };
+
+  // define function to toggle the navbar burger
+  toggleNavBurger = (event) => {
+    this.setState({
+      // toggles state to opposite of whatever is the current state
+      isNavBurgerActive: !this.state.isNavBurgerActive,
+    });
+  };
+
   // define handleLogout function
   handleLogout = (event) => {
     console.log('in handleLogout');
@@ -44,15 +56,16 @@ class NavBar extends Component {
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">DeTour</Link>
 
-          {/* [] NEED A JS FILE WITH JQUERY TO SET UP CLICK EVENT FOR NAVBAR BURGER */}
-          <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          {/* if this.state.navBurger is true ? set className to "is-active" : if not, take it out */}
+          <a role="button" className={ this.state.isNavBurgerActive ? "navbar-burger burger is-active" : "navbar-burger burger" } aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={this.toggleNavBurger}>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
+        {/* toggles "is-active" class on navbar menu depending on state */}
+        <div id="navbarBasicExample" className={ this.state.isNavBurgerActive ? "navbar-menu is-active" : "navbar-menu" }>
           <div className="navbar-end">
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Regions</a>
