@@ -84,7 +84,7 @@ class CountryContainer extends Component {
 }
 
 
-// puts the location and user object in store into this.props.currentCountry/.user
+// puts the location object in store into this.props.currentCountry
 const mapStateToProps = (store) => {
   return {
     currentCountry: store.location,

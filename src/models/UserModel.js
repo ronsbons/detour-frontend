@@ -21,6 +21,14 @@ class UserModel {
     console.log(`login request: ${request}`);
     return request;
   };
+
+  static addSavedTour(userId, savedTourId) {
+    let request = axios.put(`${endPoint}/${userId}/add-saved-tour`, {
+      saved_tour_id: savedTourId
+    });
+    console.log(`addSavedTour request: ${request}`);
+    return request;
+  };
 };
 
 export default UserModel;
