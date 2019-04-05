@@ -7,19 +7,38 @@ import UserModel from '../models/UserModel.js';
 
 
 class Tour extends Component {
+  // set local state for modal condition
+  state = {
+    isModalOpen: false,
+    userMessage: ''
+  };
+
   saveTour = (event) => {
     event.preventDefault();
-    console.log(event);
     UserModel.addSavedTour(this.props.user._id, this.props.tour._id)
       // response will be updated user
       .then( (response) => {
         console.log(`saveTour response: ${response.data}`);
-        // [] NEED USER-FACING MESSAGE LIKE "TOUR SAVED!"
-        // [] COULD IT OPEN A MODAL?
+        // open modal
+        this.setState({
+          isModalOpen: true,
+          userMessage: 'Tour saved!',
+        });
       }).catch( (error) => {
         console.log(`saveTour error: ${error}`);
-        // [] NEED USER-FACING ERROR MESSAGE
+        this.setState({
+          isModalOpen: true,
+          userMessage: 'Something went wrong saving this tour...',
+        });
       });
+  };
+
+  // define function for click event to change state to false
+  closeModal = (event) => {
+    event.preventDefault();
+    this.setState({
+      isModalOpen: false,
+    });
   };
 
   render() {
@@ -57,6 +76,15 @@ class Tour extends Component {
         </div>
         
         { saveTourButton }
+
+        {/* put modal with save/error message */}
+        <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
+          <div className="modal-background" onClick={this.closeModal}></div>
+          <div className="modal-content">
+            <h5 className="subtitle is-5">{this.state.userMessage}</h5>
+          </div>
+          <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
+        </div>  {/* end of modal div */}
       </div>
     );
   }
