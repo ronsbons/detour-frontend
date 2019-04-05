@@ -7,6 +7,7 @@ import HomeContainer from '../containers/HomeContainer.js';
 import RegionContainer from '../containers/RegionContainer.js';
 import CountryContainer from '../containers/CountryContainer.js';
 import UserAuth from '../components/UserAuth.js';
+import ProfileContainer from '../containers/ProfileContainer.js';
 import Footer from './Footer.js';
 
 import '../styles/App.css';
@@ -79,6 +80,11 @@ class App extends Component {
           <Route path="/login"
                 render={() => {
                   return <UserAuth />;
+                }}
+          />
+          <Route path="/profile"
+                render={() => {
+                  return <ProfileContainer />;
                 }}
           />
         </Switch>
