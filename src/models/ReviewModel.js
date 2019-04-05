@@ -38,6 +38,12 @@ class ReviewModel {
     console.log(`deleteReview request: ${request}`);
     return request;
   };
+
+  static getReviewsByUser(userId) {
+    let request = axios.get(`${endPoint}/user/${userId}`);
+    console.log(`getReviewsByUser request: ${request}`);
+    return request;
+  };
 };
 
 export default ReviewModel;
