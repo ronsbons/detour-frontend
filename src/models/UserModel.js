@@ -29,6 +29,12 @@ class UserModel {
     console.log(`addSavedTour request: ${request}`);
     return request;
   };
+
+  static getUserInfo(userId) {
+    let request = axios.get(`${endPoint}/${userId}`);
+    console.log(`getUserInfo request: ${request}`);
+    return request;
+  };
 };
 
 export default UserModel;
