@@ -74,7 +74,7 @@ class Review extends Component {
     return (
       <div className="message">
         <div className="message-header">
-          <p>{this.state.review.user_id.username}</p>
+          <p>{this.state.review.country_id.countryName} | {this.state.review.user_id.username}</p>
 
           { modifyReviewButtons }
 

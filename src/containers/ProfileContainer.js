@@ -15,8 +15,6 @@ class ProfileContainer extends Component {
     reviews: [],
   };
 
-
-
   componentDidMount() {
     // perform axios call to get user info, including saved tours
     UserModel.getUserInfo(this.props.user._id)
@@ -47,12 +45,55 @@ class ProfileContainer extends Component {
 
   };
 
-  // need to define delete review function here (take from ReviewsList.js)
+  // function to remove saved tour from list of saved tours
+  removeTour = (userId, tourId) => {
+    console.log(`in removeTour`);
+    UserModel.removeSavedTour(userId, tourId)
+    .then( (response) => {
+      console.log(`user's saved tours now: ${response.data.saved_tour_id}`);
+      let savedTours = this.state.savedTours.filter( (tour) => {
+        console.log(`filtering saved tours`);
+        // [] response is going to be the updated user with an array of saved_tour_ids without the removed tour in it
+        // [] so we want to filter this.state.reviews to match the ones in the response
+        // [] but we need to iterate through the response ones
+        // want to return the tour._id that is in response.data.saved_tour_id array
+        let savedTourIds = response.data.saved_tour_id;
+
+      });
+
+      this.setState({
+        savedTours: savedTours,
+      });
+    }).catch( (error) => {
+      console.log(`remove saved tour error: ${error}`);
+      // [] NEED USER-FACING ERROR MESSAGE
+    });
+  };
+
+  // same delete review function as in ReviewsList.js
+  deleteReview = (reviewId) => {
+    ReviewModel.deleteReview(reviewId)
+      .then( (response) => {
+        console.log(`deleteReview response: ${response.data}`);
+        // singular review represents single review in this.state.reviews
+        let reviews = this.state.reviews.filter( (review) => {
+          console.log('filtering reviews');
+          // filter this.state.reviews to be all the reviews except the review that was deleted
+          return review._id !== response.data._id;
+        });
+        this.setState({
+          reviews: reviews,
+        });
+      }).catch( (error) => {
+        console.log(`delete review error: ${error}`);
+        // [] NEED USER-FACING ERROR MESSAGE
+      });
+  };
 
   render() {
     return (
       <div className="columns">
-        <div className="column">
+        <div className="column is-one-quarter">
           <div className="user-icon">
             {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
             <h2 className="subtitle is-2">R</h2>
@@ -70,7 +111,7 @@ class ProfileContainer extends Component {
           <div className="columns is-multiline">
             {/* map through this.state.tours and pass to SavedTours component */}
             {this.state.savedTours.map(tour => (
-              <SavedTours tour={tour} key={tour._id} />
+              <SavedTours tour={tour} removeTour={this.removeTour} key={tour._id} />
             ))}
           </div>
 
@@ -78,7 +119,7 @@ class ProfileContainer extends Component {
             <h5 className="subtitle is-5">Reviews</h5>
             {/* map through this.state.reviews and pass to Review component */}
             {this.state.reviews.map(review => (
-              <Review review={review} key={review._id} />
+              <Review review={review} deleteReview={this.deleteReview} key={review._id} />
             ))}
           </div>
         </div>
