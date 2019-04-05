@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import UserModel from '../models/UserModel.js';
@@ -6,6 +7,11 @@ import UserModel from '../models/UserModel.js';
 import { isUserLoggedIn } from '../actions/userActions.js';
 
 class UserAuth extends Component {
+  // set local state of redirect so that when sign up or log in changes this state to true, it redirects
+  state = {
+    redirect: false,
+  };
+
   handleSignup = (event) => {
     console.log(event);
     event.preventDefault();
@@ -22,9 +28,12 @@ class UserAuth extends Component {
         console.log(response.data);
         // store jwt in local storage token
         localStorage.token = response.data.signedJwt;
-        
         // sends new user data to action isUserLoggedIn
         this.props.isUserLoggedIn(response.data.user);
+        // change state to true in order to redirect
+        this.setState({
+          redirect: true,
+        });
       })
       .catch(error => {
         console.log(`front end sign up error`);
@@ -46,9 +55,12 @@ class UserAuth extends Component {
         console.log(response.data);
         // store jwt in localstorage token
         localStorage.token = response.data.signedJwt;
-
         // sends logged in user data to action
         this.props.isUserLoggedIn(response.data.user);
+        // change state to true in order to redirect
+        this.setState({
+          redirect: true,
+        });        
       })
       .catch(error => {
         console.log(`front end login error`);
@@ -57,6 +69,15 @@ class UserAuth extends Component {
   };
 
   render() {
+    // if state.redirect is true
+    if (this.state.redirect) {
+      return (
+        // redirect to landing page
+        <Redirect to="/" />
+      );
+    };
+
+
     return (
       <div className="columns">
         {/* Log in form */}
