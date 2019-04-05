@@ -35,6 +35,14 @@ class UserModel {
     console.log(`getUserInfo request: ${request}`);
     return request;
   };
+
+  static removeSavedTour(userId, savedTourId) {
+    let request = axios.put(`${endPoint}/${userId}/remove-saved-tour`, {
+      saved_tour_id: savedTourId,
+    });
+    console.log(`removeSavedTour request: ${request}`);
+    return request;
+  };
 };
 
 export default UserModel;

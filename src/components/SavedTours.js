@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import UserModel from '../models/UserModel.js';
+
 class SavedTours extends Component {
+  handleRemove = (event) => {
+    event.preventDefault();
+    console.log(`in handleRemove`);
+    this.props.removeTour(this.props.user._id, this.props.tour._id);
+  };
+
   render() {
     return (
       <div className="column is-one-third">
@@ -20,7 +30,7 @@ class SavedTours extends Component {
           </div>
 
           <footer className="card-footer">
-            <button className="card-footer-item">Remove</button>
+            <button className="card-footer-item" onClick={this.handleRemove}>Remove</button>
           </footer>
         </div>
       </div>
@@ -28,4 +38,15 @@ class SavedTours extends Component {
   }
 }
 
-export default SavedTours;
+
+// puts the user object in store into this.props.user
+const mapStateToProps = (store) => {
+  return {
+    user: store.user,
+  };
+};
+
+// connects the store and added props to component to export
+export default connect(
+  mapStateToProps
+)(SavedTours);
