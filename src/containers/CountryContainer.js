@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 
 // import any nested component needed
 import Tour from '../components/Tour.js';
+import ReviewsList from '../components/Reviews/ReviewsList.js';
 // import any model needed for axios calls
-import TourModel from '../models/TourModel';
+import TourModel from '../models/TourModel.js';
 
 import './Tour.css';
 
@@ -14,7 +15,7 @@ class CountryContainer extends Component {
   // set local state to hold the data received from axios call
   // set state in this component, because the data only needs to be accessed in this component
   state = {
-    tours: []
+    tours: [],
   };
 
   getTours = () => {
@@ -27,6 +28,7 @@ class CountryContainer extends Component {
       })
       .catch(error => {
         console.log(`CountryContainer error when getting tours by country: ${error}`);
+        // [] NEED USER-FACING ERROR MESSAGE
       });
   };
 
@@ -41,6 +43,7 @@ class CountryContainer extends Component {
       this.getTours();
     };
   };
+
 
   render() {
     return (
@@ -73,13 +76,15 @@ class CountryContainer extends Component {
             <Tour tour={tour} key={tour._id} />
           ))}
         </div>
+
+        <ReviewsList />
       </div>
     );
   }
 }
 
 
-// puts the location object in store into this.props.currentCountry
+// puts the location and user object in store into this.props.currentCountry/.user
 const mapStateToProps = (store) => {
   return {
     currentCountry: store.location,
