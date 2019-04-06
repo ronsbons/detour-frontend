@@ -72,7 +72,7 @@ class Tour extends Component {
         </div>
 
         <div className="tour-cell">
-          <h6 className="subtitle is-6">{this.props.tour.countries_visited}</h6>
+          <h6 className="subtitle is-6">{this.props.tour.countries_visited.join(', ')}</h6>
         </div>
         
         { saveTourButton }
