@@ -5,6 +5,7 @@ const endPoint = 'http://localhost:3001/user';
 class UserModel {
   static signUp(username, email, password) {
     let request = axios.post(`${endPoint}/signup`, {
+      // ": username" is the argument passed into the function
       username: username,
       email: email,
       password: password
@@ -15,6 +16,7 @@ class UserModel {
 
   static login(username, password) {
     let request = axios.post(`${endPoint}/login`, {
+      // ": username" is the argument passed into the function
       username: username,
       password: password,
     });
@@ -35,6 +37,16 @@ class UserModel {
     console.log(`getUserInfo request: ${request}`);
     return request;
   };
+
+  static editUser(userId, username, email) {
+    let request = axios.put(`${endPoint}/${userId}`, {
+      // ": username" is the argument passed into the function
+      username: username,
+      email: email,
+    });
+    console.log(`editUser request: ${request}`);
+    return request;
+  }
 
   static removeSavedTour(userId, savedTourId) {
     let request = axios.put(`${endPoint}/${userId}/remove-saved-tour`, {

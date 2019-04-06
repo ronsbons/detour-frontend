@@ -11,8 +11,10 @@ import ReviewModel from '../models/ReviewModel.js';
 
 class ProfileContainer extends Component {
   state = {
+    isModalOpen: false,
     savedTours: [],
     reviews: [],
+    user: this.props.user,
   };
 
   componentDidMount() {
@@ -22,6 +24,7 @@ class ProfileContainer extends Component {
         console.log(`getUserInfo response bit: ${response.data.saved_tour_id[0].name}`);
         this.setState({
           savedTours: response.data.saved_tour_id,
+          user: response.data,
         });
       }).catch( (error) => {
         console.log(`getUserInfo error: ${error}`);
@@ -41,8 +44,39 @@ class ProfileContainer extends Component {
       });
   };
 
-  componentDidUpdate() {
+  openModal = (event) => {
+    event.preventDefault();
+    this.setState({
+      isModalOpen: true,
+    });
+  };
 
+  closeModal = (event) => {
+    event.preventDefault();
+    this.setState({
+      isModalOpen: false,
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let username = event.target[0].value;
+    let email = event.target[1].value;
+    console.log(`update user info: ${username}, ${email}`);
+
+    UserModel.editUser(this.state.user._id, username, email)
+      .then( (response) => {
+        console.log(`editUser response: ${response.data}`);
+        this.setState({
+          // close modal form upon submit of form
+          isModalOpen: false,
+          // change this.state.user to the edited user info from the response
+          user: response.data,
+        });
+      }).catch( (error) => {
+        console.log(`edit user error: ${error}`);
+        // [] NEED USER-FACING ERROR MESSAGE
+      });
   };
 
   // function to remove saved tour from list of saved tours
@@ -113,7 +147,23 @@ class ProfileContainer extends Component {
             <h2 className="subtitle is-2">R</h2>
           </div>
 
-          <h5 className="subtitle is-5">{this.props.user.username}</h5>
+          <h5 className="subtitle is-5">{this.state.user.username}</h5>
+          <button onClick={this.openModal}>Edit Your Info</button>
+
+          <div className={this.state.isModalOpen ? "modal is-active" : "modal"}>
+            <div className="modal-background" onClick={this.closeModal}></div>
+            <div className="modal-content">
+              <form onSubmit={this.handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <input type="text" name="username" id="username" defaultValue={this.state.user.username} />
+
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" id="email" defaultValue={this.state.user.email} />
+
+                <button type="submit">Submit Changes</button>
+              </form>
+            </div>
+          </div>
 
           {/* [] CHANGE TO DYNAMICALLY POPULATED # OF SAVED TOURS AND # OF REVIEWS */}
           <p># of Saved Tours</p>
