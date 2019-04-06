@@ -16,6 +16,31 @@ class ReviewsList extends Component {
     isModalOpen: false,
   };
 
+
+  getReviews = () => {
+    ReviewModel.getReviewsByCountry(this.props.currentCountry.id)
+      .then( (response) => {
+        // add found reviews to local state
+        this.setState({
+          reviews: response.data,
+        });
+      }).catch( (error) => {
+        console.log(`getReviews error`);
+        // [] NEED USER-FACING ERROR MESSAGE
+      });
+  };
+
+  componentDidMount() {
+    this.getReviews();
+  };
+
+  // get reviews again after props.currentCountry changes in store -> this component's props
+  componentDidUpdate(prevProps) {
+    if (this.props.currentCountry.id !== prevProps.currentCountry.id) {
+      this.getReviews();
+    };
+  };
+
   // define functions to set state for open/close modal
   openModal = (event) => {
     event.preventDefault();
@@ -55,23 +80,6 @@ class ReviewsList extends Component {
       .catch( (error) => {
         console.log(`add review error: ${error}`);
         // [] NEED A USER-FACING ERROR MESSAGE
-      });
-  };
-
-  componentDidMount() {
-    this.getReviews();
-  };
-
-  getReviews = () => {
-    ReviewModel.getReviewsByCountry(this.props.currentCountry.id)
-      .then( (response) => {
-        // add found reviews to local state
-        this.setState({
-          reviews: response.data,
-        });
-      }).catch( (error) => {
-        console.log(`getReviews error`);
-        // [] NEED USER-FACING ERROR MESSAGE
       });
   };
 

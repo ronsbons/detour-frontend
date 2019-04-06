@@ -88,7 +88,7 @@ class App extends Component {
                 }}
           />
         </Switch>
-        <Footer />
+        <Footer regions={this.state.regions} />
       </div>
     );
   }
