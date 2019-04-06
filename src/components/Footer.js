@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 
 import CountryModel from '../models/CountryModel.js';
 
+import { currentRegion } from '../actions/locationActions.js';
 import { currentCountry } from '../actions/locationActions.js';
 
 class Footer extends Component {
   state = {
+    regions: this.props.regions,
     countriesAfrica: [],
     countriesAsia: [],
     countriesAus: [],
@@ -67,73 +69,85 @@ class Footer extends Component {
           <h5 className="subtitle is-6 has-text-centered">Site Map</h5>
           <div className="columns">
             <div className="column">
-              <h6 className="subtitle is-6">Africa</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[0])}>{this.state.regions[0].regionName}</Link>
+              </h6>
               {this.state.countriesAfrica.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
 
             <div className="column">
-              <h6 className="subtitle is-6">Asia</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[1])}>{this.state.regions[1].regionName}</Link>
+              </h6>
               {this.state.countriesAsia.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
 
             <div className="column">
-              <h6 className="subtitle is-6">Australia</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[2])}>{this.state.regions[2].regionName}</Link>
+              </h6>
               {this.state.countriesAus.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
 
             <div className="column">
-              <h6 className="subtitle is-6">Europe</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[3])}>{this.state.regions[3].regionName}</Link>
+              </h6>
               {this.state.countriesEU.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
 
             <div className="column">
-              <h6 className="subtitle is-6">North America</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[4])}>{this.state.regions[4].regionName}</Link>
+              </h6>
               {this.state.countriesNAmer.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
 
             <div className="column">
-              <h6 className="subtitle is-6">South America</h6>
+              <h6 className="subtitle is-6">
+                <Link to="/region"
+                  onClick={() => this.props.currentRegion(this.state.regions[5])}>{this.state.regions[5].regionName}</Link>
+              </h6>
               {this.state.countriesSAmer.map(country => (
-                <div>
+                <div key={country._id}>
                   <Link to="/country" 
-                  className="is-size-7"
-                  key={country._id}
-                  onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
+                    className="is-size-7"
+                    onClick={() => this.props.currentCountry(country)}>{country.countryName}</Link><br />
                 </div>
               ))}
             </div>
@@ -152,5 +166,5 @@ class Footer extends Component {
 
 export default connect(
   null,
-  { currentCountry }
+  { currentRegion, currentCountry }
 )(Footer);
