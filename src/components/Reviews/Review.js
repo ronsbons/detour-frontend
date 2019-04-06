@@ -74,14 +74,14 @@ class Review extends Component {
     return (
       <div className="message">
         <div className="message-header">
-          <p>{this.state.review.user_id.username}</p>
+          <p>{this.state.review.country_id.countryName} | {this.state.review.user_id.username}</p>
 
           { modifyReviewButtons }
 
           {/* modal to hold edit review form */}
           {/* if this.state.modal is true ? set className to "is-active" : if not, leave as "modal" */}
           <div className={this.state.isModalOpen ? "modal is-active" : "modal"}>
-            <div className="modal-background"></div>
+            <div className="modal-background" onClick={this.closeModal}></div>
             <div className="modal-content">
               <form onSubmit={this.handleSubmit}>
                 <label htmlFor="rating">Rating: </label>
