@@ -50,17 +50,31 @@ class ProfileContainer extends Component {
     console.log(`in removeTour`);
     UserModel.removeSavedTour(userId, tourId)
     .then( (response) => {
-      console.log(`user's saved tours now: ${response.data.saved_tour_id}`);
+      // response.data is the updated user
+      // define variable responseTours for just the user's saved tours which are objects that hold all of the tour's info
+      let responseTours = response.data.saved_tour_id;
+      // create an empty array for just the saved tours' ids
+      let responseIds = []
+
+      // iterate through all the saved tours
+      for (let i = 0; i < responseTours.length; i++) {
+        // and push their _ids into the empty array
+        responseIds.push(responseTours[i]._id);
+      };
+
+      console.log(`saved tours' ids: ${responseIds}`);
+
+      // filter through the previously saved tours in this.state
       let savedTours = this.state.savedTours.filter( (tour) => {
         console.log(`filtering saved tours`);
-        // [] response is going to be the updated user with an array of saved_tour_ids without the removed tour in it
-        // [] so we want to filter this.state.reviews to match the ones in the response
-        // [] but we need to iterate through the response ones
-        // want to return the tour._id that is in response.data.saved_tour_id array
-        let savedTourIds = response.data.saved_tour_id;
-
+        console.log(`tour being checked: ${tour._id}, ${tour.name}`);
+        console.log(responseIds.includes(tour._id));
+        
+        // and just return the tour if its _id is found within the responseIds array of the database response
+        return responseIds.includes(tour._id);
       });
 
+      // setState to the new array of savedTours defined above after filtering
       this.setState({
         savedTours: savedTours,
       });
