@@ -8,8 +8,6 @@ import ReviewsList from '../components/Reviews/ReviewsList.js';
 // import any model needed for axios calls
 import TourModel from '../models/TourModel.js';
 
-import './Tour.css';
-
 
 class CountryContainer extends Component {
   // set local state to hold the data received from axios call

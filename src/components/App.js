@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import NavBar from '../components/NavBar.js';
+import NavBar from './NavBar.js'
 import HomeContainer from '../containers/HomeContainer.js';
 import RegionContainer from '../containers/RegionContainer.js';
 import CountryContainer from '../containers/CountryContainer.js';
-import UserAuth from '../components/UserAuth.js';
+import UserAuth from './UserAuth.js';
 import ProfileContainer from '../containers/ProfileContainer.js';
 import Footer from './Footer.js';
 

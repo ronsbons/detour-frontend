@@ -5,23 +5,31 @@ class About extends Component {
     return (
       <div className="about">
         <div className="columns">
-          <div className="column image is-256x256">
-            <img src="./images/contiki-logo-vector.svg" alt="Contiki logo" />
+          <div className="column">
+            <figure className="image is-128x128">
+              <img src="./images/contiki-logo-vector.svg" alt="Contiki logo" />
+            </figure>
             <h4 className="subtitle is-4">Contiki</h4>
           </div>
 
-          <div className="column image is-256x256">
-            <img src="./images/g-adventures-seeklogo.com.svg" alt="G Adventures logo" />
+          <div className="column">
+            <figure className="image is-128x128">
+              <img src="./images/G Adventures logo.png" alt="G Adventures logo" />
+            </figure>
             <h4 className="subtitle is-4">G Adventures</h4>
           </div>
 
-          <div className="column image is-256x256">
-            <img src="./images/flashpack.png" alt="Flash Pack logo" />
+          <div className="column">
+            <figure className="image is-128x128">
+              <img src="./images/flashpack.png" alt="Flash Pack logo" />
+            </figure>
             <h4 className="subtitle is-4">Flash Pack</h4>
           </div>
 
-          <div className="column image is-256x256">
-            <img src="./images/topdeck-travel-logo.png" alt="Topdeck logo" />
+          <div className="column">
+            <figure className="image is-128x128">
+              <img src="./images/topdeck-travel-logo.png" alt="Topdeck logo" />
+            </figure>
             <h4 className="subtitle is-4">Topdeck</h4>
           </div>
         </div>
