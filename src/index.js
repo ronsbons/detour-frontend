@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App.js';
 import configureStore from './configureStore.js';
 
-import './styles/main.css';
+import './styles/index.css';
 import 'bulma/css/bulma.css'
 
 import * as serviceWorker from './serviceWorker';
