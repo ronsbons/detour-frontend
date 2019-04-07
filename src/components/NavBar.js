@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // connects component to actions
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 // import any action needed from actions folder
@@ -8,8 +9,10 @@ import { currentRegion } from '../actions/locationActions.js';
 import { userLogOut } from '../actions/userActions.js';
 
 class NavBar extends Component {
+  // set local state to open/close navbar burger and to redirect upon logout
   state = {
     isNavBurgerActive: false,
+    // redirect: false,
   };
 
   // define function to toggle the navbar burger
@@ -22,11 +25,16 @@ class NavBar extends Component {
 
   // define handleLogout function
   handleLogout = (event) => {
+    event.preventDefault();
     console.log('in handleLogout');
     // clears localStorage of token
     localStorage.clear();
     // dispatches action userLogOut
     this.props.userLogOut();
+    // [] CREATES AN INFINITE LOOP B/C STATE STAYS TRUE
+    // this.setState({
+    //   redirect: true,
+    // });
   };
 
   render() {
@@ -38,7 +46,7 @@ class NavBar extends Component {
       userNavItems.push(
         <div className="navbar-item" key="loggedInNav">
           <Link className="navbar-item" to="/profile">Profile</Link>
-          <a className="navbar-item" onClick={() => this.handleLogout()}>Log Out</a>
+          <a className="navbar-item" onClick={this.handleLogout}>Log Out</a>
         </div>
       );
     } else {
@@ -51,10 +59,18 @@ class NavBar extends Component {
       );
     };
 
+    // if this.state.redirect is true (upon logout)
+    // if (this.state.redirect) {
+    //   return (
+        // redirect to landing page
+    //     <Redirect to="/login" />
+    //   );
+    // };
+
     return (
       <div className="navbar" role="navigation" aria-label="main-navigation">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">DeTour</Link>
+          <Link className="navbar-item company-icon" to="/"><img src="./images/iconfinder_resolutions-21_897231.png" alt="DeTour icon" /><span>DeTour</span></Link>
 
           {/* if this.state.navBurger is true ? set className to "is-active" : if not, take it out */}
           <a role="button" className={ this.state.isNavBurgerActive ? "navbar-burger burger is-active" : "navbar-burger burger" } aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={this.toggleNavBurger}>

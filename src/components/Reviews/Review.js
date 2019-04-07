@@ -84,22 +84,34 @@ class Review extends Component {
             <div className="modal-background" onClick={this.closeModal}></div>
             <div className="modal-content">
               <form onSubmit={this.handleSubmit}>
-                <label htmlFor="rating">Rating: </label>
-                <input type="number"
-                  name="rating"
-                  min="1"
-                  max="5"
-                  id="rating"
-                  defaultValue={this.state.review.rating} />
+                <div className="field">
+                  <label htmlFor="rating" className="label">Rating: </label>
+                  <div className="control">
+                    <input type="number"
+                      name="rating"
+                      min="1"
+                      max="5"
+                      id="rating"
+                      defaultValue={this.state.review.rating}
+                      className="input" />
+                  </div>
+                </div>
 
-                <label htmlFor="review-content">Review:</label>
-                <textarea name="content"
-                  id="review-content"
-                  cols="50"
-                  rows="20"
-                  defaultValue={this.state.review.content}></textarea>
+                <div className="field">
+                  <label htmlFor="review-content" className="label">Review:</label>
+                  <div className="control">
+                    <textarea name="content"
+                      id="review-content"
+                      defaultValue={this.state.review.content}
+                      className="textarea"></textarea>
+                  </div>
+                </div>
 
-                <button type="submit">Submit Changes</button>
+                <div className="field">
+                  <div className="control">
+                    <button type="submit" className="button is-primary">Submit Changes</button>
+                  </div>
+                </div>
               </form>
             </div>  {/* end of modal-content div */}
             <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>

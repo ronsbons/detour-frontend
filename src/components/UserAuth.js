@@ -84,14 +84,26 @@ class UserAuth extends Component {
         <div className="column">
           <h4 className="subtitle is-4 has-text-centered">Log In</h4>
           <form onSubmit={this.handleLogin}>
-            {/* label for corresponds with input id */}
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" placeholder="username" id="username" />
+            <div className="field">
+              {/* label htmlFor corresponds with input id */}
+              <label htmlFor="username" className="label">Username</label>
+              <div className="control">
+                <input type="text" name="username" placeholder="username" id="username" className="input" />
+              </div>
+            </div>
 
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" placeholder="password" id="password" />
+            <div className="field">
+              <label htmlFor="password" className="label">Password</label>
+              <div className="control">
+                <input type="password" name="password" placeholder="password" id="password" className="input" />
+              </div>
+            </div>
 
-            <button type="submit">Log In</button>
+            <div className="field">
+              <div className="control">
+                <button type="submit" className="button is-primary">Log In</button>
+              </div>
+            </div>
           </form>
         </div>
 
@@ -99,16 +111,32 @@ class UserAuth extends Component {
         <div className="column">
           <h4 className="subtitle is-4 has-text-centered">Sign Up</h4>
           <form onSubmit={this.handleSignup}>
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" placeholder="username" id="username" />
+            <div className="field">
+              <label htmlFor="username" className="label">Username</label>
+              <div className="control">
+                <input type="text" name="username" placeholder="username" id="username" className="input" />
+              </div>
+            </div>
 
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" placeholder="email" id="email" />
+            <div className="field">
+              <label htmlFor="email" className="label">Email</label>
+              <div className="control">
+                <input type="email" name="email" placeholder="email" id="email" className="input" />
+              </div>
+            </div>
 
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" placeholder="password" id="password" />
-            
-            <button type="submit">Sign Up</button> 
+            <div className="field">
+              <label htmlFor="password" className="label">Password</label>
+              <div className="control">
+                <input type="password" name="password" placeholder="password" id="password" className="input" />
+              </div>
+            </div>
+
+            <div className="field">
+              <div className="control">
+                <button type="submit" className="button is-primary">Sign Up</button> 
+              </div>
+            </div>
           </form>
         </div>
       </div>

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import NavBar from '../components/NavBar.js';
+import NavBar from './NavBar.js'
 import HomeContainer from '../containers/HomeContainer.js';
 import RegionContainer from '../containers/RegionContainer.js';
 import CountryContainer from '../containers/CountryContainer.js';
-import UserAuth from '../components/UserAuth.js';
+import UserAuth from './UserAuth.js';
 import ProfileContainer from '../containers/ProfileContainer.js';
 import Footer from './Footer.js';
 
@@ -60,34 +60,36 @@ class App extends Component {
     return (
       <div className="app-container">
         <NavBar regions={this.state.regions} />
-        <Switch>
-          <Route exact path="/"
-                render={() => {
-                  return <HomeContainer regions={this.state.regions} />;
-                }}
-          />
+        <div className="component-container">
+          <Switch>
+            <Route exact path="/"
+                  render={() => {
+                    return <HomeContainer regions={this.state.regions} />;
+                  }}
+            />
 
-          <Route path="/region"
-                render={() => {
-                  return <RegionContainer />;
-                }}
-          />
-          <Route path="/country"
-                render={() => {
-                  return <CountryContainer />;
-                }}
-          />
-          <Route path="/login"
-                render={() => {
-                  return <UserAuth />;
-                }}
-          />
-          <Route path="/profile"
-                render={() => {
-                  return <ProfileContainer />;
-                }}
-          />
-        </Switch>
+            <Route path="/region"
+                  render={() => {
+                    return <RegionContainer />;
+                  }}
+            />
+            <Route path="/country"
+                  render={() => {
+                    return <CountryContainer />;
+                  }}
+            />
+            <Route path="/login"
+                  render={() => {
+                    return <UserAuth />;
+                  }}
+            />
+            <Route path="/profile"
+                  render={() => {
+                    return <ProfileContainer />;
+                  }}
+            />
+          </Switch>
+        </div>
         <Footer regions={this.state.regions} />
       </div>
     );
