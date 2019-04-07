@@ -1,0 +1,19 @@
+
+// [] TO BE CHANGED
+// Set your brand colors
+$mint-cream: #F7FFF7;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Raleway', sans-serif;
+$family-primary: $family-sans-serif;
+$family-secondary: 'Yellowtail', cursive;
+// [] TO BE CHANGED
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// [] TO BE CHANGED
+// Update some of Bulma's component variables
+$body-background-color: $mint-cream;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
