@@ -60,34 +60,36 @@ class App extends Component {
     return (
       <div className="app-container">
         <NavBar regions={this.state.regions} />
-        <Switch>
-          <Route exact path="/"
-                render={() => {
-                  return <HomeContainer regions={this.state.regions} />;
-                }}
-          />
+        <div className="component-container">
+          <Switch>
+            <Route exact path="/"
+                  render={() => {
+                    return <HomeContainer regions={this.state.regions} />;
+                  }}
+            />
 
-          <Route path="/region"
-                render={() => {
-                  return <RegionContainer />;
-                }}
-          />
-          <Route path="/country"
-                render={() => {
-                  return <CountryContainer />;
-                }}
-          />
-          <Route path="/login"
-                render={() => {
-                  return <UserAuth />;
-                }}
-          />
-          <Route path="/profile"
-                render={() => {
-                  return <ProfileContainer />;
-                }}
-          />
-        </Switch>
+            <Route path="/region"
+                  render={() => {
+                    return <RegionContainer />;
+                  }}
+            />
+            <Route path="/country"
+                  render={() => {
+                    return <CountryContainer />;
+                  }}
+            />
+            <Route path="/login"
+                  render={() => {
+                    return <UserAuth />;
+                  }}
+            />
+            <Route path="/profile"
+                  render={() => {
+                    return <ProfileContainer />;
+                  }}
+            />
+          </Switch>
+        </div>
         <Footer regions={this.state.regions} />
       </div>
     );

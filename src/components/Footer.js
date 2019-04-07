@@ -154,7 +154,7 @@ class Footer extends Component {
           </div>
         </div>
 
-        <div className="column copyright">
+        <div className="column copyright has-text-right">
           <p className="is-size-7">&copy; 2019 DeTour</p>
           {/* social icons */}
         </div>

@@ -3857,3 +3857,6 @@ a.navbar-item,
 .company-icon {
   font-family: "Yellowtail", cursive;
   font-size: 2rem; }
+
+.component-container {
+  padding-top: 4rem; }
