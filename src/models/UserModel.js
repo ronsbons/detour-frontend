@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const endPoint = 'http://localhost:3001/user';
+// const endPoint = 'http://localhost:3001/user';
+const endPoint = 'http://sheltered-shore-25414.herokuapp.com/user';
 
 class UserModel {
   static signUp(username, email, password) {

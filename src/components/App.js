@@ -53,9 +53,9 @@ class App extends Component {
   
   componentDidMount() {
     // successful test to connect to backend
-    axios.get('http://localhost:3001/').then(response => {
-      console.log(response.data);
-    });
+    // axios.get('http://localhost:3001/').then(response => {
+    //   console.log(response.data);
+    // });
   };
 
   render() {

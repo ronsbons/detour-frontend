@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const endPoint = 'http://localhost:3001/tours';
+// const endPoint = 'http://localhost:3001/tours';
+const endPoint = 'http://sheltered-shore-25414.herokuapp.com/tours';
 
 class TourModel {
   static getToursByCountry(countryId) {
