@@ -25,14 +25,6 @@ class UserModel {
   };
 
   // =====================  user auth required =====================
-  static addSavedTour(userId, savedTourId) {
-    let request = axios.put(`${endPoint}/${userId}/add-saved-tour`, {
-      saved_tour_id: savedTourId
-    });
-    console.log(`addSavedTour request: ${request}`);
-    return request;
-  };
-
   static getUserInfo(userId) {
     let request = axios({
       method: 'GET',
@@ -45,18 +37,44 @@ class UserModel {
   };
 
   static editUser(userId, username, email) {
-    let request = axios.put(`${endPoint}/${userId}`, {
-      // ": username" is the argument passed into the function
-      username: username,
-      email: email,
+    let request = axios({
+      method: 'PUT',
+      url: `${endPoint}/${userId}`,
+      data: {
+        // ": username" is the argument passed into the function
+        username: username,
+        email: email,
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
     });
     console.log(`editUser request: ${request}`);
     return request;
-  }
+  };
+  
+  static addSavedTour(userId, savedTourId) {
+    let request = axios({
+      method: 'PUT',
+      url: `${endPoint}/${userId}/add-saved-tour`,
+      data: {
+        saved_tour_id: savedTourId
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    });
+    console.log(`addSavedTour request: ${request}`);
+    return request;
+  };
 
   static removeSavedTour(userId, savedTourId) {
-    let request = axios.put(`${endPoint}/${userId}/remove-saved-tour`, {
-      saved_tour_id: savedTourId,
+    let request = axios({
+      method: 'PUT',
+      url: `${endPoint}/${userId}/remove-saved-tour`,
+      data: {
+        saved_tour_id: savedTourId,
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
     });
     console.log(`removeSavedTour request: ${request}`);
     return request;
