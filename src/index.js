@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './components/App.js';
 import { store, persistor } from './configureStore.js';
 
+import 'bulma/css/bulma.css';
 import './styles/index.css';
 
 import * as serviceWorker from './serviceWorker';
