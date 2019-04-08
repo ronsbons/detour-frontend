@@ -59,7 +59,12 @@ class ReviewModel {
   };
 
   static getReviewsByUser(userId) {
-    let request = axios.get(`${endPoint}/user/${userId}`);
+    let request = axios({
+      method: 'GET',
+      url: `${endPoint}/user/${userId}`,
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    });
     console.log(`getReviewsByUser request: ${request}`);
     return request;
   };
