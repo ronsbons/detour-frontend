@@ -48,7 +48,12 @@ class ReviewModel {
   };
 
   static deleteReview(reviewId) {
-    let request = axios.delete(`${endPoint}/${reviewId}`);
+    let request = axios({
+      method: 'DELETE',
+      url: `${endPoint}/${reviewId}`,
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    })
     console.log(`deleteReview request: ${request}`);
     return request;
   };
