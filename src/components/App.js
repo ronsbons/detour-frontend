@@ -90,7 +90,7 @@ class App extends Component {
                     if (this.props.user.isLoggedIn) {
                       return <ProfileContainer />;
                     } else {
-                      return <Redirect to="/" />;
+                      return <Redirect to="/login" />;
                     };
                   }}
             />
