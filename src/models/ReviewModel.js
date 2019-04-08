@@ -11,15 +11,23 @@ class ReviewModel {
 
   static addReview(content, rating, userId, countryId) {
     // send review info to route to create a review
-    // "content:" is property key in review model
-    // ": content" is argument passed into function
-    let request = axios.post(`${endPoint}`, {
-      content: content,
-      rating: rating,
-      user_id: userId,
-      country_id: countryId 
+    let request = axios({
+      method: 'POST',
+      url: `${endPoint}`,
+      data: {
+        // "content:" is property key in review model
+        // ": content" is argument passed into function
+        content: content,
+        rating: rating,
+        user_id: userId,
+        country_id: countryId 
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
     });
-    console.log(`addReview request: ${request}`);
+    // [] WHY ARE THESE UNDEFINED BUT REQUEST IS SUCCESSFULLY GOING THROUGH?
+    // console.log(`addReview request: ${request.data}`);
+    // console.log(`addReview request.body.user_id ${request.body.user_id}`);
     return request;
   };
 
