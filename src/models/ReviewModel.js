@@ -33,10 +33,16 @@ class ReviewModel {
 
   // send review info to route to update
   static editReview(reviewId, content, rating) {
-    let request = axios.put(`${endPoint}/${reviewId}`, {
-      content: content,
-      rating: rating,
-    });
+    let request = axios({
+      method: 'PUT',
+      url: `${endPoint}/${reviewId}`,
+      data: {
+        content: content,
+        rating: rating,
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    })
     console.log(`editReview request: ${request}`);
     return request;
   };
