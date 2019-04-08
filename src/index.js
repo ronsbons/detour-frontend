@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './components/App.js';
-import configureStore from './configureStore.js';
+import { store, persistor } from './configureStore.js';
 
 import './styles/index.css';
 import 'bulma/css/bulma.css'
@@ -12,13 +13,17 @@ import 'bulma/css/bulma.css'
 import * as serviceWorker from './serviceWorker';
 
 
-const store = configureStore();
-
 ReactDOM.render(
+  // pass in store from configureStore file
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    {/* [] can set a Loading component in loading */}
+    {/* PersistGate delays rendering of app's UI until persisted state has been retrieved and saved to redux */}
+    {/* pass in persistor from configureStore file */}
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <App />
+      </Router>
+    </PersistGate>
   </Provider>,
   
   document.getElementById('root')
