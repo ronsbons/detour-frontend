@@ -9,6 +9,7 @@ class ReviewModel {
     return request;
   };
 
+  // =====================  user auth required =====================
   static addReview(content, rating, userId, countryId) {
     // send review info to route to create a review
     let request = axios({

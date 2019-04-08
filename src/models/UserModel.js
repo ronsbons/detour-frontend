@@ -24,6 +24,7 @@ class UserModel {
     return request;
   };
 
+  // =====================  user auth required =====================
   static addSavedTour(userId, savedTourId) {
     let request = axios.put(`${endPoint}/${userId}/add-saved-tour`, {
       saved_tour_id: savedTourId
@@ -33,7 +34,12 @@ class UserModel {
   };
 
   static getUserInfo(userId) {
-    let request = axios.get(`${endPoint}/${userId}`);
+    let request = axios({
+      method: 'GET',
+      url: `${endPoint}/${userId}`,
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    });
     console.log(`getUserInfo request: ${request}`);
     return request;
   };
