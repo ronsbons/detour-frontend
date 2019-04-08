@@ -9,38 +9,63 @@ class ReviewModel {
     return request;
   };
 
+  // =====================  user auth required =====================
   static addReview(content, rating, userId, countryId) {
     // send review info to route to create a review
-    // "content:" is property key in review model
-    // ": content" is argument passed into function
-    let request = axios.post(`${endPoint}`, {
-      content: content,
-      rating: rating,
-      user_id: userId,
-      country_id: countryId 
+    let request = axios({
+      method: 'POST',
+      url: `${endPoint}`,
+      data: {
+        // "content:" is property key in review model
+        // ": content" is argument passed into function
+        content: content,
+        rating: rating,
+        user_id: userId,
+        country_id: countryId 
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
     });
-    console.log(`addReview request: ${request}`);
+    // [] WHY ARE THESE UNDEFINED BUT REQUEST IS SUCCESSFULLY GOING THROUGH?
+    // console.log(`addReview request: ${request.data}`);
+    // console.log(`addReview request.body.user_id ${request.body.user_id}`);
     return request;
   };
 
   // send review info to route to update
   static editReview(reviewId, content, rating) {
-    let request = axios.put(`${endPoint}/${reviewId}`, {
-      content: content,
-      rating: rating,
-    });
+    let request = axios({
+      method: 'PUT',
+      url: `${endPoint}/${reviewId}`,
+      data: {
+        content: content,
+        rating: rating,
+      },
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    })
     console.log(`editReview request: ${request}`);
     return request;
   };
 
   static deleteReview(reviewId) {
-    let request = axios.delete(`${endPoint}/${reviewId}`);
+    let request = axios({
+      method: 'DELETE',
+      url: `${endPoint}/${reviewId}`,
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    })
     console.log(`deleteReview request: ${request}`);
     return request;
   };
 
   static getReviewsByUser(userId) {
-    let request = axios.get(`${endPoint}/user/${userId}`);
+    let request = axios({
+      method: 'GET',
+      url: `${endPoint}/user/${userId}`,
+      // adds jwt token to request.headers
+      headers: { authorization: `Bearer ${localStorage.token}`},
+    });
     console.log(`getReviewsByUser request: ${request}`);
     return request;
   };

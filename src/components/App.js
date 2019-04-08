@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Switch, Redirect } from "react-router-dom";
 
+import { connect } from 'react-redux';
+
 import NavBar from './NavBar.js'
 import HomeContainer from '../containers/HomeContainer.js';
 import RegionContainer from '../containers/RegionContainer.js';
@@ -85,7 +87,11 @@ class App extends Component {
             />
             <Route path="/profile"
                   render={() => {
-                    return <ProfileContainer />;
+                    if (this.props.user.isLoggedIn) {
+                      return <ProfileContainer />;
+                    } else {
+                      return <Redirect to="/login" />;
+                    };
                   }}
             />
           </Switch>
@@ -96,4 +102,15 @@ class App extends Component {
   }
 }
 
-export default App;
+
+// puts the user object in store into this.props.user
+const mapStateToProps = (store) => {
+  return {
+    user: store.user,
+  };
+};
+
+// connects the store and added props to component to export
+export default connect(
+  mapStateToProps
+)(App);
