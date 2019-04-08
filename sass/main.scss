@@ -3,7 +3,7 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Yellowtail');
 
-@import './sass/variables.sass';
+
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -16,6 +16,7 @@
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
 
+@import './variables';
 
 @import './navbar';
 
