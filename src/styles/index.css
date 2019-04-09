@@ -6552,7 +6552,14 @@ h3 {
     text-align: left; }
 
 .username-icon {
-  font-family: "Pacifico", cursive; }
+  background-color: #1A535C;
+  border-radius: 50%;
+  color: #F7FFF7;
+  font-family: "Pacifico", cursive;
+  margin: auto;
+  padding: .2em;
+  text-transform: capitalize;
+  width: 28%; }
 
 .username {
   margin-bottom: 1rem !important; }

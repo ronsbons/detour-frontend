@@ -144,7 +144,7 @@ class ProfileContainer extends Component {
         <div className="column is-one-quarter">
           <div className="user-icon">
             {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
-            <h2 className="subtitle is-2 username-icon">R</h2>
+            <h2 className="subtitle is-2 username-icon">{this.state.user.username.charAt(0)}</h2>
           </div>
 
           <h5 className="subtitle is-5 username">{this.state.user.username}</h5>
