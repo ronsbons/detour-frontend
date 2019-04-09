@@ -6,7 +6,21 @@ let userToken = localStorage.getItem('token');
 // only verify token against secret key to access user payload if there is a token
 let verified = '';
 if (userToken) {
-  verified = jwt.verify(userToken, 'essendon');
+  // verified = jwt.verify(userToken, 'essendon');
+  jwt.verify(userToken, 'essendon', (error, decoded) => {
+    if (error) {
+      error = {
+        name: 'TokenExpiredError',
+        message: 'jwt expired',
+      };
+
+      console.log(`jwt verify error; ${error}`);
+      localStorage.clear();
+    };
+    verified = decoded;
+    console.log(`verified variable: ${verified}`);
+    console.log(`decoded from jwt.verify: ${decoded}`);
+  });
 };
 console.log(`verified ${verified.username}`);
 
