@@ -70,7 +70,7 @@ class NavBar extends Component {
     return (
       <div className="navbar" role="navigation" aria-label="main-navigation">
         <div className="navbar-brand">
-          <Link className="navbar-item company-icon" to="/"><img src="./images/iconfinder_resolutions-21_897231.png" alt="DeTour icon" /><span>DeTour</span></Link>
+          <Link className="navbar-item company-icon" to="/"><img src="./images/iconfinder_resolutions-21_897231.png" alt="DeTour icon" /><span className="nav-company">DeTour</span></Link>
 
           {/* if this.state.navBurger is true ? set className to "is-active" : if not, take it out */}
           <a role="button" className={ this.state.isNavBurgerActive ? "navbar-burger burger is-active" : "navbar-burger burger" } aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={this.toggleNavBurger}>

@@ -1,0 +1,84 @@
+.carousel {
+  position: relative;
+};
+
+.company-hero {
+  color: $mint-cream;
+  filter: drop-shadow(0 0 6px #000);
+  font-family: $family-secondary;
+  font-size: 1.7em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 35%;
+  z-index: 1;
+};
+
+.carousel-slide {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+};
+
+.carousel-africa {
+  background-image: 
+    // creates overlay of $english-green
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/mike-holford-274691-unsplash.jpg');
+};
+
+.carousel-asia {
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/chastagner-thierry-694402-unsplash.jpg');
+};
+
+.carousel-aus {
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/alex-wong-46425-unsplash.jpg');
+};
+
+.carousel-europe {
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/anastasia-dulgier-1155961-unsplash.jpg');
+};
+
+.carousel-namer {
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/tim-foster-601009-unsplash.jpg');
+};
+
+.carousel-samer {
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      hsla(188, 56%, 23%, .45),
+      hsla(188, 56%, 23%, .2)
+    ),
+    url('../images-for-css/agustin-diaz-185846-unsplash.jpg');
+};

@@ -1,26 +1,44 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Yellowtail');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Raleway:300,400,600,700');
 
 
-// Import only what you need from Bulma
-@import "../node_modules/bulma/sass/utilities/_all.sass";
-@import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
-@import "../node_modules/bulma/sass/elements/form.sass";
-@import "../node_modules/bulma/sass/elements/title.sass";
-@import "../node_modules/bulma/sass/components/navbar.sass";
-@import "../node_modules/bulma/sass/layout/hero.sass";
-@import "../node_modules/bulma/sass/layout/section.sass";
-
-
+// import defined variables
 @import './variables';
 
-@import './navbar';
+// import Bulma's sass (contains all Bulma's styles for every component, layout, etc.)
+@import '../node_modules/bulma/bulma.sass';
+
+
+// =========== global styles =================
+a {
+  color: $english-green;
+};
+
+a:hover {
+  color: $medium-turquoise;
+};
 
 // pushes components down to account for fixed navbar
 .component-container {
   padding-top: 4rem; 
-}
+};
+
+.column {
+  text-align: center;
+};
+
+.image {
+  margin: auto;
+};
+
+.subtitle {
+  text-align: center;
+};
+
+// import partial scss files
+@import './navbar';
+@import './carousel';
+@import './about';
+
