@@ -37,11 +37,20 @@ a:hover {
   text-align: center;
 };
 
+h3 {
+  color: $medium-turquoise;
+  font-family: $family-secondary;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+};
+
 
 // import partial scss files
 @import './navbar';
 @import './carousel';
 @import './about';
 @import './regionsquare';
+@import './region';
+@import './country';
 @import './footer';
 

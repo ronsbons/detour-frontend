@@ -6391,6 +6391,12 @@ a:hover {
 .subtitle {
   text-align: center; }
 
+h3 {
+  color: #4ECDC4;
+  font-family: "Pacifico", cursive;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem; }
+
 .navbar {
   background-color: #4ECDC4;
   position: fixed !important;
@@ -6492,6 +6498,21 @@ a:hover {
   position: absolute;
   right: 0;
   top: 40%; }
+
+.region-container h3 {
+  font-size: 4rem !important; }
+
+.country-container h3 {
+  font-size: 3rem !important; }
+
+.table {
+  background-color: #F7FFF7;
+  margin: auto; }
+  .table th {
+    vertical-align: middle; }
+
+.reviews-title {
+  margin-bottom: 3.5rem !important; }
 
 .footer {
   background-color: #4ECDC4;

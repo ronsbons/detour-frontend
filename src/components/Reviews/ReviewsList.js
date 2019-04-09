@@ -114,7 +114,7 @@ class ReviewsList extends Component {
 
     return (
       <div>
-        <h5 className="subtitle is-5">Reviews</h5>
+        <h5 className="subtitle is-5 reviews-title">Reviews</h5>
 
         { addReviewButton }
 
