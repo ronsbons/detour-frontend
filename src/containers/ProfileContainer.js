@@ -140,38 +140,54 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <div className="columns">
+      <div className="columns profile-container">
         <div className="column is-one-quarter">
           <div className="user-icon">
             {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
-            <h2 className="subtitle is-2">R</h2>
+            <h2 className="subtitle is-2 username-icon">R</h2>
           </div>
 
-          <h5 className="subtitle is-5">{this.state.user.username}</h5>
-          <button onClick={this.openModal}>Edit Your Info</button>
+          <h5 className="subtitle is-5 username">{this.state.user.username}</h5>
+          <button onClick={this.openModal} className="button is-primary is-small profile-button">Edit Your Info</button>
 
           <div className={this.state.isModalOpen ? "modal is-active" : "modal"}>
             <div className="modal-background" onClick={this.closeModal}></div>
             <div className="modal-content">
               <form onSubmit={this.handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" defaultValue={this.state.user.username} />
+                <div className="field">
+                  <label htmlFor="username" className="label">Username</label>
+                  <div className="control">
+                    <input type="text" name="username" id="username" className="input" defaultValue={this.state.user.username} />
+                  </div>
+                </div>
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" defaultValue={this.state.user.email} />
+                <div className="field">
+                  <label htmlFor="email" className="label">Email</label>
+                  <div className="control">
+                    <input type="email" name="email" id="email" className="input" defaultValue={this.state.user.email} />
+                  </div>
+                </div>
 
-                <button type="submit">Submit Changes</button>
+                <div className="field">
+                  <div className="control">
+                    <button type="submit" className="button is-primary">Submit Changes</button>
+                  </div>
+                </div>
               </form>
-            </div>
-          </div>
+            </div>  {/* end of modal-content div */}
 
-          {/* [] CHANGE TO DYNAMICALLY POPULATED # OF SAVED TOURS AND # OF REVIEWS */}
-          <p># of Saved Tours</p>
-          <p># of Reviews</p>
+            <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
+          </div>  {/* end of modal div */}
+
+          <div className="user-stats">
+            {/* [] CHANGE TO DYNAMICALLY POPULATED # OF SAVED TOURS AND # OF REVIEWS */}
+            <p># of Saved Tours</p>
+            <p># of Reviews</p>
+          </div>
         </div>
 
         <div className="column">
-          <h5 className="subtitle is-5">Saved Tours</h5>
+          <h5 className="title is-5">Saved Tours</h5>
           <div className="columns is-multiline">
             {/* map through this.state.tours and pass to SavedTours component */}
             {this.state.savedTours.map(tour => (
@@ -179,8 +195,8 @@ class ProfileContainer extends Component {
             ))}
           </div>
 
-          <div>
-            <h5 className="subtitle is-5">Reviews</h5>
+          <div className="review-container">
+            <h5 className="title is-5">Reviews</h5>
             {/* map through this.state.reviews and pass to Review component */}
             {this.state.reviews.map(review => (
               <Review review={review} deleteReview={this.deleteReview} key={review._id} />

@@ -78,7 +78,7 @@ class CountryContainer extends Component {
       saveTourButton.push(
         this.state.tours.map(tour => (
           <td key={tour._id}>
-            <button onClick={this.saveTour} id={tour._id}>Save to Wish List</button>
+            <button onClick={this.saveTour} id={tour._id} className="button is-primary">Save to Wish List</button>
           </td>
         ))
       );

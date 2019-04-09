@@ -1,0 +1,55 @@
+.profile-container {
+  .title {
+    text-align: left;
+  };
+  margin: 1.5rem 2rem 2rem !important;
+};
+
+.username-icon {
+  font-family: $family-secondary;
+};
+
+.username {
+  margin-bottom: 1rem !important;
+};
+
+.profile-button {
+  border: none;
+  // color: $mint-cream;
+};
+
+.user-stats {
+  margin-top: 1.5rem;
+};
+
+.card {
+  box-shadow:
+    4px 5px 4px hsla(188, 56%, 23%, .1),
+    0 0 4px 10px hsla(188, 56%, 23%, .1);
+  color: $english-green;
+};
+
+.card-image {
+  padding: 1em 0 0;
+};
+
+.card-content {
+  h5 {
+    color: $english-green;
+  };
+};
+
+.button-remove {
+  margin-top: 1em;
+};
+
+.review-container {
+  border-top: 1px solid $english-green;
+  margin: 1.5rem 0;
+  padding-top: 1.5rem;
+};
+
+.modal-content {
+  background-color: $mint-cream;
+  padding: 2em;
+};

@@ -13,15 +13,17 @@ class CountrySquare extends Component {
 
         {/* loop through the locations passed down from RegionContainer */}
         {this.props.countries.map(country => (
-          <div className="column is-one-third" key={country.countryName}>
+          <div className="column is-one-third region-square" key={country.countryName}>
             {/* .currentCountry is the action imported in */}
             {/* sends country object clicked on to change state */}
             <Link to="/country"
                   onClick={() => this.props.currentCountry(country)}>
-              <figure className="image is-256x256">
+              <figure className="image is-256x256 location-photo">
                 <img src={country.countryPhoto} alt={country.countryName} />
               </figure>
-              <h6 className="subtitle is-6">{country.countryName}</h6>
+              <div className="location-name-overlay">
+                <h2 className="subtitle is-2 location-name">{country.countryName}</h2>
+              </div>
             </Link>
 
           </div>

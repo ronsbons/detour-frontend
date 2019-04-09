@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Carousel from '../components/Carousel/Carousel.js';
+import Carousel from '../components/Carousel.js';
 import About from '../components/About.js';
 import RegionSquare from '../components/Location/RegionSquare';
 
