@@ -1,0 +1,22 @@
+.footer {
+  a {
+    color: $mint-cream;
+  };
+  a:hover {
+    color: $english-green;
+  };
+  background-color: $medium-turquoise;
+  color: $english-green;
+  h5 {
+    color: $english-green;
+  };
+  padding: 1.5rem 3rem;
+};
+
+.social-icons {
+  padding: .5em 0;
+};
+
+.fa-github {
+  margin-right: .5em;
+};

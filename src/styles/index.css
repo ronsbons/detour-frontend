@@ -6460,6 +6460,7 @@ a:hover {
 .about-title {
   color: #1A535C;
   font-family: "Pacifico", cursive;
+  font-size: 8rem !important;
   margin-top: 1.5rem;
   text-align: center; }
 
@@ -6491,3 +6492,20 @@ a:hover {
   position: absolute;
   right: 0;
   top: 40%; }
+
+.footer {
+  background-color: #4ECDC4;
+  color: #1A535C;
+  padding: 1.5rem 3rem; }
+  .footer a {
+    color: #F7FFF7; }
+  .footer a:hover {
+    color: #1A535C; }
+  .footer h5 {
+    color: #1A535C; }
+
+.social-icons {
+  padding: .5em 0; }
+
+.fa-github {
+  margin-right: .5em; }

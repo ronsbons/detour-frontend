@@ -65,7 +65,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer columns">
-        <div className="column is-three-quarters">
+        <div className="column is-four-fifths">
           <h5 className="subtitle is-6 has-text-centered">Site Map</h5>
           <div className="columns">
             <div className="column">
@@ -155,8 +155,12 @@ class Footer extends Component {
         </div>
 
         <div className="column copyright has-text-right">
-          <p className="is-size-7">&copy; 2019 DeTour</p>
+          <p className="is-size-7">&copy; 2019 Ronni</p>
           {/* social icons */}
+          <div className="social-icons">
+            <a href="https://github.com/ronsbons"><i className="fab fa-github fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/ronni-louie/"><i className="fab fa-linkedin fa-lg"></i></a>
+          </div>
         </div>
       </div>
     );
