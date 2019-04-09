@@ -6382,20 +6382,34 @@ a:hover {
 .component-container {
   padding-top: 4rem; }
 
-.column {
+.column,
+.subtitle {
   text-align: center; }
 
 .image {
   margin: auto; }
-
-.subtitle {
-  text-align: center; }
 
 h3 {
   color: #4ECDC4;
   font-family: "Pacifico", cursive;
   margin-top: 1.5rem;
   padding-top: 1.5rem; }
+
+.label {
+  text-align: left; }
+
+.input {
+  border: 1px solid #4ECDC4;
+  border-radius: 6px; }
+
+.input:hover {
+  border-color: #1A535C; }
+
+.button.is-primary {
+  background-color: #4ECDC4; }
+
+.button.button.is-primary:hover {
+  background-color: #1A535C; }
 
 .navbar {
   background-color: #4ECDC4;
@@ -6513,6 +6527,12 @@ h3 {
 
 .reviews-title {
   margin-bottom: 3.5rem !important; }
+
+.user-forms {
+  margin: 1.5rem 0 2rem !important;
+  padding: 0 4%; }
+  .user-forms .column {
+    padding: 1em 3em; }
 
 .footer {
   background-color: #4ECDC4;

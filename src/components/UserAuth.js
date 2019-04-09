@@ -79,7 +79,7 @@ class UserAuth extends Component {
 
 
     return (
-      <div className="columns">
+      <div className="columns user-forms">
         {/* Log in form */}
         <div className="column">
           <h4 className="subtitle is-4 has-text-centered">Log In</h4>

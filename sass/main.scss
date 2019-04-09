@@ -25,16 +25,14 @@ a:hover {
   padding-top: 4rem; 
 };
 
-.column {
-  text-align: center;
-};
-
-.image {
-  margin: auto;
-};
-
+.column,
 .subtitle {
   text-align: center;
+};
+
+// centers images
+.image {
+  margin: auto;
 };
 
 h3 {
@@ -44,6 +42,27 @@ h3 {
   padding-top: 1.5rem;
 };
 
+// for forms
+.label {
+  text-align: left;
+};
+
+.input {
+  border: 1px solid $medium-turquoise;
+  border-radius: 6px;
+};
+
+.input:hover {
+  border-color: $english-green;
+};
+
+.button.is-primary {
+  background-color: $medium-turquoise;
+};
+
+.button.button.is-primary:hover {
+  background-color: $english-green;
+};
 
 // import partial scss files
 @import './navbar';
@@ -52,5 +71,6 @@ h3 {
 @import './regionsquare';
 @import './region';
 @import './country';
+@import './userauth';
 @import './footer';
 
