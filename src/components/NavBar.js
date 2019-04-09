@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // connects component to actions
 import { connect } from 'react-redux';
-import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 // import any action needed from actions folder
