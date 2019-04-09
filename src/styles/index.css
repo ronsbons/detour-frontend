@@ -950,7 +950,7 @@ a.box:active {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #3273dc; }
 
 .button {
-  background-color: white;
+  background-color: #4ECDC4;
   border-color: #dbdbdb;
   border-width: 2px;
   color: #363636;
@@ -990,7 +990,7 @@ a.box:active {
   .button.is-text {
     background-color: transparent;
     border-color: transparent;
-    color: #4a4a4a;
+    color: #F7FFF7;
     text-decoration: underline; }
     .button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
       background-color: whitesmoke;
@@ -6398,18 +6398,19 @@ h3 {
 .label {
   text-align: left; }
 
-.input {
+.input,
+.textarea {
   border: 1px solid #4ECDC4;
   border-radius: 6px; }
 
-.input:hover {
+.input:hover,
+.textarea:hover {
   border-color: #1A535C; }
 
-.button.is-primary {
-  background-color: #4ECDC4; }
-
-.button.button.is-primary:hover {
-  background-color: #1A535C; }
+.button.is-primary:hover,
+.button.is-light:hover {
+  background-color: #1A535C;
+  color: #F7FFF7; }
 
 .navbar {
   background-color: #4ECDC4;
@@ -6516,8 +6517,10 @@ h3 {
 .region-container h3 {
   font-size: 4rem !important; }
 
-.country-container h3 {
-  font-size: 3rem !important; }
+.country-container {
+  padding: 0 2rem; }
+  .country-container h3 {
+    font-size: 3rem !important; }
 
 .table {
   background-color: #F7FFF7;
@@ -6525,14 +6528,62 @@ h3 {
   .table th {
     vertical-align: middle; }
 
-.reviews-title {
-  margin-bottom: 3.5rem !important; }
+.reviews-list {
+  margin: 3.5rem 0 !important; }
+
+.message-header {
+  background-color: rgba(26, 83, 91, 0.8); }
+
+.button-edit-review {
+  margin-right: .4em; }
+
+.message-body {
+  text-align: left; }
 
 .user-forms {
   margin: 1.5rem 0 2rem !important;
   padding: 0 4%; }
   .user-forms .column {
     padding: 1em 3em; }
+
+.profile-container {
+  margin: 1.5rem 2rem 2rem !important; }
+  .profile-container .title {
+    text-align: left; }
+
+.username-icon {
+  font-family: "Pacifico", cursive; }
+
+.username {
+  margin-bottom: 1rem !important; }
+
+.profile-button {
+  border: none; }
+
+.user-stats {
+  margin-top: 1.5rem; }
+
+.card {
+  box-shadow: 4px 5px 4px rgba(26, 83, 91, 0.1), 0 0 4px 10px rgba(26, 83, 91, 0.1);
+  color: #1A535C; }
+
+.card-image {
+  padding: 1em 0 0; }
+
+.card-content h5 {
+  color: #1A535C; }
+
+.button-remove {
+  margin-top: 1em; }
+
+.review-container {
+  border-top: 1px solid #1A535C;
+  margin: 1.5rem 0;
+  padding-top: 1.5rem; }
+
+.modal-content {
+  background-color: #F7FFF7;
+  padding: 2em; }
 
 .footer {
   background-color: #4ECDC4;

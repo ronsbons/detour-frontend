@@ -27,11 +27,9 @@ class SavedTours extends Component {
 
           <div className="card-content">
             <a href={this.props.tour.link}><h5 className="subtitle is-5">{this.props.tour.name}</h5></a>
-          </div>
 
-          <footer className="card-footer">
-            <button className="card-footer-item" onClick={this.handleRemove}>Remove</button>
-          </footer>
+            <button className="button is-primary button-remove" onClick={this.handleRemove}>Remove</button>
+          </div>
         </div>
       </div>
     );

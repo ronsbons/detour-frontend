@@ -158,8 +158,8 @@ class Footer extends Component {
           <p className="is-size-7">&copy; 2019 Ronni</p>
           {/* social icons */}
           <div className="social-icons">
-            <a href="https://github.com/ronsbons"><i className="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/ronni-louie/"><i className="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://github.com/ronsbons" className="icon"><i className="fab fa-github fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/ronni-louie/" className="icon"><i className="fab fa-linkedin fa-lg"></i></a>
           </div>
         </div>
       </div>

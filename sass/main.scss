@@ -47,21 +47,21 @@ h3 {
   text-align: left;
 };
 
-.input {
+.input,
+.textarea {
   border: 1px solid $medium-turquoise;
   border-radius: 6px;
 };
 
-.input:hover {
+.input:hover,
+.textarea:hover {
   border-color: $english-green;
 };
 
-.button.is-primary {
-  background-color: $medium-turquoise;
-};
-
-.button.button.is-primary:hover {
+.button.is-primary:hover,
+.button.is-light:hover {
   background-color: $english-green;
+  color: $mint-cream;
 };
 
 // import partial scss files
@@ -71,6 +71,8 @@ h3 {
 @import './regionsquare';
 @import './region';
 @import './country';
+@import './review';
 @import './userauth';
+@import './profile';
 @import './footer';
 

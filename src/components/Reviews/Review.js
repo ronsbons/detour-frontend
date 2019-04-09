@@ -65,8 +65,8 @@ class Review extends Component {
     if (this.props.user.isLoggedIn && this.props.user._id === this.state.review.user_id._id) {
       modifyReviewButtons.push(
         <div className="review-buttons is-pulled-right" key="modify-button">
-          <button onClick={this.openModal}>Edit</button>
-          <button onClick={this.handleDelete}>Delete</button>
+          <button className="button is-primary is-small button-edit-review" onClick={this.openModal}>Edit</button>
+          <button className="button is-light is-small" onClick={this.handleDelete}>Delete</button>
         </div>
       );
     };

@@ -108,16 +108,14 @@ class ReviewsList extends Component {
 
     if (this.props.user.isLoggedIn) {
       addReviewButton.push(
-        <button onClick={this.openModal} key="add-button">Add a Review</button>
+        <button onClick={this.openModal} key="add-button" className="button is-primary is-small">Add a Review</button>
       );
     };
 
     return (
-      <div>
-        <h5 className="subtitle is-5 reviews-title">Reviews</h5>
-
-        { addReviewButton }
-
+      <div class="reviews-list">
+        <h5 className="subtitle is-5 reviews-title">Reviews <span className="is-pulled-right">{ addReviewButton }</span></h5>
+        
         {/* modal to hold review form */}
         {/* if this.state.modal is true ? set className to "is-active" : if not, set className to "" */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>

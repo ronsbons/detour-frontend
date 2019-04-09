@@ -1,6 +1,9 @@
 
 // Set your brand colors
 $mint-cream: #F7FFF7;
+$medium-turquoise: #4ECDC4;
+$english-green: #1A535C;
+
 
 // Update Bulma's global variables
 $family-sans-serif: 'Raleway', sans-serif;
@@ -16,7 +19,5 @@ $body-background-color: $mint-cream;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
-
-// color variables:
-$medium-turquoise: #4ECDC4;
-$english-green: #1A535C;
+$button-background-color: $medium-turquoise;
+$button-text-color: $mint-cream;
