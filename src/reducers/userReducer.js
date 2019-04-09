@@ -8,6 +8,7 @@ let verified = '';
 if (userToken) {
   // verified = jwt.verify(userToken, 'essendon');
   jwt.verify(userToken, 'essendon', (error, decoded) => {
+    // if jwt is expired
     if (error) {
       error = {
         name: 'TokenExpiredError',
@@ -15,14 +16,15 @@ if (userToken) {
       };
 
       console.log(`jwt verify error; ${error}`);
-      localStorage.clear();
+      // remove token from localStorage, which will force defaultState to be isLoggedIn: false
+      localStorage.removeItem('token');
+    // if jwt is still valid,
+    } else {
+      // set variable to the payload
+      verified = decoded;
     };
-    verified = decoded;
-    console.log(`verified variable: ${verified}`);
-    console.log(`decoded from jwt.verify: ${decoded}`);
   });
 };
-console.log(`verified ${verified.username}`);
 
 // if there is a token in localStorage, set defaultState to loggedin true
 const defaultState = userToken ? {
