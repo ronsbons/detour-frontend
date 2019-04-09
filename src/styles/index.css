@@ -6468,3 +6468,26 @@ a:hover {
 
 .about-summary {
   padding: 0 15%; }
+
+.region-square {
+  position: relative; }
+
+.region-square:hover .location-name-overlay {
+  background-color: rgba(26, 83, 91, 0.45); }
+
+.location-name-overlay {
+  height: 93.5%;
+  left: 2.9%;
+  position: absolute;
+  right: 0;
+  top: 2.9%;
+  width: 93.5%;
+  z-index: 1; }
+
+.location-name {
+  color: #F7FFF7;
+  font-family: "Pacifico", cursive;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 40%; }

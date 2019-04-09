@@ -1,0 +1,26 @@
+.region-square {
+  position: relative;
+};
+
+.region-square:hover .location-name-overlay{
+  background-color: hsla(188, 56%, 23%, .45);
+}
+
+.location-name-overlay {
+  height: 93.5%;
+  left: 2.9%;
+  position: absolute;
+  right: 0;
+  top: 2.9%;
+  width: 93.5%;
+  z-index: 1;
+};
+
+.location-name {
+  color: $mint-cream;
+  font-family: $family-secondary;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 40%;
+};
