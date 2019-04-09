@@ -10,6 +10,8 @@ import rootReducer from './reducers/indexReducers.js';
 const persistConfig = {
   key: 'root',
   storage,
+  // only persist the location part of state
+  whitelist: ['location'],
 };
 
 // export object "store" returned from createStore function that takes into account persistReducer and middleware
