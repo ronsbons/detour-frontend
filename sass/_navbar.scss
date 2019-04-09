@@ -4,7 +4,12 @@
   width: 100%;
 };
 
+a.navbar-item:hover {
+  background-color: transparent;
+}
+
 .company-icon {
+  color: $mint-cream;
   font-family: $family-secondary;
-  font-size: $size-3;
+  font-size: $size-2;
 };
