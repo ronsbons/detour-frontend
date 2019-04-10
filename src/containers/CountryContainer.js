@@ -85,7 +85,7 @@ class CountryContainer extends Component {
     };
 
     return (
-      <div className="country-container">
+      <section className="country-container">
         <h3 className="subtitle is-3">{this.props.currentCountry.name}</h3>
         <table className="table">
           <tbody>
@@ -145,16 +145,17 @@ class CountryContainer extends Component {
 
         </table>
 
+        {/* modal to display success/error from saving tour */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
           <div className="modal-background" onClick={this.closeModal}></div>
           <div className="modal-content">
-            <h5 className="subtitle is-5">{this.state.userMessage}</h5>
+            <h5 className="subtitle is-5 about-subtitle">{this.state.userMessage}</h5>
           </div>
           <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
         </div>
 
         <ReviewsList />
-      </div>
+      </section>
     );
   }
 }

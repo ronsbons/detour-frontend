@@ -140,7 +140,7 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <div className="columns profile-container">
+      <section className="columns profile-container">
         <div className="column is-one-quarter">
           <div className="user-icon">
             {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
@@ -170,7 +170,9 @@ class ProfileContainer extends Component {
 
                 <div className="field">
                   <div className="control">
-                    <button type="submit" className="button is-primary">Submit Changes</button>
+                    <button type="submit"
+                      aria-label="submit profile changes"
+                      className="button is-primary">Submit Changes</button>
                   </div>
                 </div>
               </form>
@@ -203,7 +205,7 @@ class ProfileContainer extends Component {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

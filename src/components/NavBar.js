@@ -45,7 +45,7 @@ class NavBar extends Component {
       userNavItems.push(
         <div className="navbar-item" key="loggedInNav">
           <Link className="navbar-item" to="/profile">Profile</Link>
-          <a className="navbar-item" onClick={this.handleLogout}>Log Out</a>
+          <a aria-label="log out link" className="navbar-item" onClick={this.handleLogout}>Log Out</a>
         </div>
       );
     } else {
@@ -83,7 +83,7 @@ class NavBar extends Component {
         <div id="navbarBasicExample" className={ this.state.isNavBurgerActive ? "navbar-menu is-active" : "navbar-menu" }>
           <div className="navbar-end">
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Regions</a>
+              <a aria-label="regions dropdown menu" className="navbar-link">Regions</a>
 
               <div className="navbar-dropdown">
                 {this.props.regions.map(region => (
