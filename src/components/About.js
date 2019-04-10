@@ -5,25 +5,25 @@ class About extends Component {
     return (
       <div className="about">
         <div className="columns is-multiline">
-          <div className="column is-half-tablet is-half-mobile">
+          <div className="column is-half-mobile">
             <figure className="image is-128x128">
               <img src="./images/contiki-logo-vector.svg" alt="Contiki logo" />
             </figure>
           </div>
 
-          <div className="column is-half-tablet is-half-mobile">
+          <div className="column is-half-mobile">
             <figure className="image is-128x128">
               <img src="./images/G Adventures logo.png" alt="G Adventures logo" />
             </figure>
           </div>
 
-          <div className="column is-half-tablet is-half-mobile">
+          <div className="column is-half-mobile">
             <figure className="image is-128x128">
               <img src="./images/flashpack.png" alt="Flash Pack logo" />
             </figure>
           </div>
 
-          <div className="column is-half-tablet is-half-mobile">
+          <div className="column is-half-mobile">
             <figure className="image is-128x128">
               <img src="./images/topdeck-travel-logo.png" alt="Topdeck logo" />
             </figure>
