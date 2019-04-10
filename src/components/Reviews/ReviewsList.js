@@ -113,7 +113,7 @@ class ReviewsList extends Component {
     };
 
     return (
-      <div class="reviews-list">
+      <div className="reviews-list">
         <h5 className="subtitle is-5 reviews-title">Reviews <span className="is-pulled-right">{ addReviewButton }</span></h5>
         
         {/* modal to hold review form */}

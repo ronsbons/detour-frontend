@@ -8,24 +8,39 @@ class Review extends Component {
   // set local state for modal condition
   // set local state containing review inherited from ReviewsList in order for component to re-render upon editing the review
   state = {
-    isModalOpen: false,
+    isDeleteModalOpen: false,
+    isEditModalOpen: false,
     review: this.props.review,
   };
 
-  // define functions to set state for open/close modal
-  openModal = (event) => {
+  // define functions to set state for open/close modals
+  openEditModal = (event) => {
     event.preventDefault();
     // upon click, change state.modal to true
     this.setState({
-      isModalOpen: true,
+      isEditModalOpen: true,
     });
   };
 
-  closeModal = (event) => {
+  closeEditModal = (event) => {
     event.preventDefault();
     // upon click, change state.modal to false
     this.setState({
-      isModalOpen: false,
+      isEditModalOpen: false,
+    });
+  };
+
+  openDeleteModal = (event) => {
+    event.preventDefault();
+    this.setState({
+      isDeleteModalOpen: true,
+    });
+  };
+
+  closeDeleteModal = (event) => {
+    event.preventDefault();
+    this.setState({
+      isDeleteModalOpen: false,
     });
   };
 
@@ -43,7 +58,7 @@ class Review extends Component {
         // close modal/form after submit
         // and change local state to the edited review in order to re-render the page with the changes
         this.setState({
-          isModalOpen: false,
+          isEditModalOpen: false,
           review: response.data,
         });
       }).catch( (error) => {
@@ -65,8 +80,8 @@ class Review extends Component {
     if (this.props.user.isLoggedIn && this.props.user._id === this.state.review.user_id._id) {
       modifyReviewButtons.push(
         <div className="review-buttons is-pulled-right" key="modify-button">
-          <button className="button is-primary is-small button-edit-review" onClick={this.openModal}>Edit</button>
-          <button className="button is-light is-small" onClick={this.handleDelete}>Delete</button>
+          <button className="button is-primary is-small button-span" onClick={this.openEditModal}>Edit</button>
+          <button className="button is-light is-small" onClick={this.openDeleteModal}>Delete</button>
         </div>
       );
     };
@@ -80,8 +95,8 @@ class Review extends Component {
 
           {/* modal to hold edit review form */}
           {/* if this.state.modal is true ? set className to "is-active" : if not, leave as "modal" */}
-          <div className={this.state.isModalOpen ? "modal is-active" : "modal"}>
-            <div className="modal-background" onClick={this.closeModal}></div>
+          <div className={this.state.isEditModalOpen ? "modal is-active" : "modal"}>
+            <div className="modal-background" onClick={this.closeEditModal}></div>
             <div className="modal-content">
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
@@ -114,8 +129,18 @@ class Review extends Component {
                 </div>
               </form>
             </div>  {/* end of modal-content div */}
-            <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
+            <button className="modal-close is-large" aria-label="close" onClick={this.closeEditModal}></button>
           </div>  {/* end of modal div */}
+
+          <div className={this.state.isDeleteModalOpen ? "modal is-active" : "modal"}>
+            <div className="modal-background" onClick={this.closeDeleteModal}></div>
+            <div className="modal-content">
+              <h5 className="subtitle is-5">Are you sure you want to delete your review?</h5>
+              <button className="button is-primary button-span" onClick={this.handleDelete}>Yes!</button>
+              <button className="button is-light" onClick={this.closeDeleteModal}>Cancel</button>
+            </div>
+            <button className="modal-close is-large" aria-label="close" onClick={this.closeDeleteModal}></button>
+          </div>  {/* end of delete modal div */}
         </div>
 
         <div className="message-body">
