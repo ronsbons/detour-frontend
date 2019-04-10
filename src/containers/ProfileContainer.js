@@ -181,8 +181,8 @@ class ProfileContainer extends Component {
 
           <div className="user-stats">
             {/* [] CHANGE TO DYNAMICALLY POPULATED # OF SAVED TOURS AND # OF REVIEWS */}
-            <p># of Saved Tours</p>
-            <p># of Reviews</p>
+            <p>{this.state.savedTours.length} Saved Tours</p>
+            <p>{this.state.reviews.length} Reviews</p>
           </div>
         </div>
 
