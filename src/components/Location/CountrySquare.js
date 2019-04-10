@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { currentCountry } from '../../actions/locationActions.js';
 
-import './Location.css';
 
 class CountrySquare extends Component {
   render() {

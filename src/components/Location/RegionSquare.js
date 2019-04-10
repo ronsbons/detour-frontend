@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { currentRegion } from '../../actions/locationActions.js';
 
-import './Location.css';
 
 class RegionSquare extends Component {
   render() {
@@ -13,7 +12,7 @@ class RegionSquare extends Component {
 
         {/* loop through the locations passed down from HomeContainer */}
         {this.props.regions.map(region => (
-          <div className="column is-one-third region-square" key={region._id}>
+          <div className="column is-one-third is-half-mobile region-square" key={region._id}>
             {/* .currentRegion is the action imported in */}
             {/* sends region object clicked on to change state */}
             <Link to="/region"

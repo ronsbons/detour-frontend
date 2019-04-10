@@ -12,7 +12,7 @@ class SavedTours extends Component {
 
   render() {
     return (
-      <div className="column is-one-third">
+      <div className="column is-one-third is-half-mobile saved-tour-card">
         <div className="card">
           <div className="card-image">
             <figure className="image is-128x128">

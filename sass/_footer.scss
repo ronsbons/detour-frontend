@@ -20,3 +20,9 @@
 .fa-github {
   margin-right: .5em;
 };
+
+@media only screen and (max-width: 414px) {
+  .is-one-third-mobile {
+    width: 50% !important;
+  };
+};

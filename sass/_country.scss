@@ -5,6 +5,10 @@
   padding: 0 2rem;
 };
 
+.table-container {
+  overflow: auto;
+};
+
 .table {
   background-color: $mint-cream;
   margin: auto;

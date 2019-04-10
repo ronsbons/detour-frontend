@@ -17,3 +17,10 @@
 .about-summary {
   padding: 0 15%;
 };
+
+
+@media only screen and (max-width: 511px) {
+  .about-title {
+    font-size: 5rem !important;
+  };
+};

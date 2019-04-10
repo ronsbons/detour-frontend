@@ -64,11 +64,11 @@ class Footer extends Component {
 
   render() {
     return (
-      <div role="contentinfo" className="footer columns">
-        <div className="column is-four-fifths">
+      <div role="contentinfo" className="footer columns is-multiline">
+        <div className="column is-four-fifths is-full-mobile">
           <h5 className="subtitle is-6 has-text-centered">Site Map</h5>
-          <div className="columns">
-            <div className="column">
+          <div className="columns is-multiline">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[0])}>{this.state.regions[0].regionName}</Link>
@@ -82,7 +82,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[1])}>{this.state.regions[1].regionName}</Link>
@@ -96,7 +96,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[2])}>{this.state.regions[2].regionName}</Link>
@@ -110,7 +110,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[3])}>{this.state.regions[3].regionName}</Link>
@@ -124,7 +124,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[4])}>{this.state.regions[4].regionName}</Link>
@@ -138,7 +138,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[5])}>{this.state.regions[5].regionName}</Link>

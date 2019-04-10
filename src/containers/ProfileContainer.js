@@ -140,8 +140,8 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <section className="columns profile-container">
-        <div className="column is-one-quarter">
+      <section className="columns is-multiline profile-container">
+        <div className="column is-one-quarter is-full-mobile">
           <div className="user-icon">
             {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
             <h2 className="subtitle is-2 username-icon">{this.state.user.username.charAt(0)}</h2>
@@ -188,9 +188,10 @@ class ProfileContainer extends Component {
           </div>
         </div>
 
-        <div className="column">
+        <div className="column is-full-mobile">
           <h5 className="title is-5">Saved Tours</h5>
-          <div className="columns is-multiline">
+          {/* location-columns for media query styling */}
+          <div className="columns is-multiline location-columns">
             {/* map through this.state.tours and pass to SavedTours component */}
             {this.state.savedTours.map(tour => (
               <SavedTours tour={tour} removeTour={this.removeTour} key={tour._id} />
