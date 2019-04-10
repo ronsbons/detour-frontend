@@ -1,3 +1,7 @@
+.location-columns {
+  margin: 2.5em 0 !important;
+};
+
 .region-square {
   position: relative;
 };
@@ -23,4 +27,34 @@
   position: absolute;
   right: 0;
   top: 40%;
+};
+
+
+@media only screen and (max-width: 768px) {
+  .location-name-overlay {
+    height: 94%;
+    left: 2.8%;
+    top: 2.8%;
+    width: 94%;
+  };
+
+  .location-name {
+    font-size: 4em !important;
+  };
+};
+
+@media only screen and (max-width: 547px) {
+  .location-name {
+    font-size: 2.5em !important;
+  };
+};
+
+@media only screen and (max-width: 414px) {
+  .location-columns {
+    display: block;
+  };
+
+  .region-square {
+    width: 100% !important; 
+  };
 };

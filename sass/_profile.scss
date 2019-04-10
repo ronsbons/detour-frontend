@@ -60,3 +60,10 @@
   background-color: $mint-cream;
   padding: 2em;
 };
+
+
+@media only screen and (max-width: 414px) {
+  .saved-tour-card {
+    width: 100% !important; 
+  };
+};

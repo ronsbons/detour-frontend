@@ -7,13 +7,13 @@ import RegionSquare from '../components/Location/RegionSquare';
 class HomeContainer extends Component {
   render() {
     return (
-      <div>
+      <section>
         <Carousel />
         <div className="home-content">
           <About />
           <RegionSquare regions={this.props.regions} />
         </div>
-      </div>
+      </section>
     );
   }
 }

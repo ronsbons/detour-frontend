@@ -64,11 +64,11 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer columns">
-        <div className="column is-four-fifths">
+      <div role="contentinfo" className="footer columns is-multiline">
+        <div className="column is-four-fifths is-full-mobile">
           <h5 className="subtitle is-6 has-text-centered">Site Map</h5>
-          <div className="columns">
-            <div className="column">
+          <div className="columns is-multiline">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[0])}>{this.state.regions[0].regionName}</Link>
@@ -82,7 +82,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[1])}>{this.state.regions[1].regionName}</Link>
@@ -96,7 +96,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[2])}>{this.state.regions[2].regionName}</Link>
@@ -110,7 +110,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[3])}>{this.state.regions[3].regionName}</Link>
@@ -124,7 +124,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[4])}>{this.state.regions[4].regionName}</Link>
@@ -138,7 +138,7 @@ class Footer extends Component {
               ))}
             </div>
 
-            <div className="column">
+            <div className="column is-one-third-mobile">
               <h6 className="subtitle is-6">
                 <Link to="/region"
                   onClick={() => this.props.currentRegion(this.state.regions[5])}>{this.state.regions[5].regionName}</Link>
@@ -161,6 +161,7 @@ class Footer extends Component {
             <a href="https://github.com/ronsbons" className="icon"><i className="fab fa-github fa-lg"></i></a>
             <a href="https://www.linkedin.com/in/ronni-louie/" className="icon"><i className="fab fa-linkedin fa-lg"></i></a>
           </div>
+          <p className="is-size-7">This site was tested for different types of color blindness on <a href="https://www.toptal.com/designers/colorfilter">Toptal</a>.</p>
         </div>
       </div>
     );

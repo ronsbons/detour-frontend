@@ -145,7 +145,9 @@ class ReviewsList extends Component {
 
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-primary">Submit</button>
+                  <button type="submit"
+                    aria-label="submit new review"
+                    className="button is-primary">Submit</button>
                 </div>
               </div>
             </form>

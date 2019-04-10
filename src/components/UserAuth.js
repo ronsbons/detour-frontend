@@ -79,9 +79,9 @@ class UserAuth extends Component {
 
 
     return (
-      <div className="columns user-forms">
+      <section className="columns is-multiline user-forms">
         {/* Log in form */}
-        <div className="column">
+        <div className="column is-full-mobile">
           <h4 className="subtitle is-4 has-text-centered">Log In</h4>
           <form onSubmit={this.handleLogin}>
             <div className="field">
@@ -101,14 +101,16 @@ class UserAuth extends Component {
 
             <div className="field">
               <div className="control">
-                <button type="submit" className="button is-primary">Log In</button>
+                <button type="submit"
+                  aria-label="log in"
+                  className="button is-primary">Log In</button>
               </div>
             </div>
           </form>
         </div>
 
         {/* Sign up form */}
-        <div className="column">
+        <div className="column is-full-mobile">
           <h4 className="subtitle is-4 has-text-centered">Sign Up</h4>
           <form onSubmit={this.handleSignup}>
             <div className="field">
@@ -134,12 +136,14 @@ class UserAuth extends Component {
 
             <div className="field">
               <div className="control">
-                <button type="submit" className="button is-primary">Sign Up</button> 
+                <button type="submit"
+                  aria-label="sign up"
+                  className="button is-primary">Sign Up</button> 
               </div>
             </div>
           </form>
         </div>
-      </div>
+      </section>
     );
   };
 };

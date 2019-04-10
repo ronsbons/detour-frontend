@@ -85,76 +85,79 @@ class CountryContainer extends Component {
     };
 
     return (
-      <div className="country-container">
+      <section className="country-container">
         <h3 className="subtitle is-3">{this.props.currentCountry.name}</h3>
-        <table className="table">
-          <tbody>
-            <tr>
-              <th>Company</th>
-              {this.state.tours.map(tour => (
-                <td key={tour._id}>
-                  <figure className="image is-128x128">
-                    <img src={tour.company} alt="tour company logo" />
-                  </figure>
-                </td>
-              ))}
-            </tr>
+        <div className="table-container">
+          <table className="table">
+            <tbody>
+              <tr>
+                <th>Company</th>
+                {this.state.tours.map(tour => (
+                  <td key={tour._id}>
+                    <figure className="image is-128x128">
+                      <img src={tour.company} alt="tour company logo" />
+                    </figure>
+                  </td>
+                ))}
+              </tr>
 
-            <tr>
-              <th>Tour Name</th>
-              {this.state.tours.map(tour => (
-                <td key={tour._id}>
-                  <h6 className="subtitle is-6"><a href={tour.link}>{tour.name}</a></h6>
-                </td>
-              ))}
-            </tr>
+              <tr>
+                <th>Tour Name</th>
+                {this.state.tours.map(tour => (
+                  <td key={tour._id}>
+                    <h6 className="subtitle is-6"><a href={tour.link}>{tour.name}</a></h6>
+                  </td>
+                ))}
+              </tr>
 
-            <tr>
-              <th>Length</th>
-              {this.state.tours.map(tour => (
-                <td key={tour._id}>
-                  <h6>{tour.length} days</h6>
-                </td>
-              ))}
-            </tr>
+              <tr>
+                <th>Length</th>
+                {this.state.tours.map(tour => (
+                  <td key={tour._id}>
+                    <h6>{tour.length} days</h6>
+                  </td>
+                ))}
+              </tr>
 
-            <tr>
-              <th>Cost</th>
-              {this.state.tours.map(tour => (
-                <td key={tour._id}>
-                  <h6>from {tour.cost}</h6>
-                </td>
-              ))}
-            </tr>
+              <tr>
+                <th>Cost</th>
+                {this.state.tours.map(tour => (
+                  <td key={tour._id}>
+                    <h6>from {tour.cost}</h6>
+                  </td>
+                ))}
+              </tr>
 
-            <tr>
-              <th>Countries Visited</th>
-              {this.state.tours.map(tour => (
-                <td key={tour._id}>
-                  <h6>{tour.countries_visited.join(', ')}</h6>
-                </td>
-              ))}
-            </tr>
+              <tr>
+                <th>Countries Visited</th>
+                {this.state.tours.map(tour => (
+                  <td key={tour._id}>
+                    <h6>{tour.countries_visited.join(', ')}</h6>
+                  </td>
+                ))}
+              </tr>
 
-            <tr>
-              <th></th>
-              { saveTourButton }
-            </tr>
+              <tr>
+                <th></th>
+                { saveTourButton }
+              </tr>
 
-          </tbody>
+            </tbody>
 
-        </table>
+          </table>
+        </div>
 
+        {/* modal to display success/error from saving tour */}
         <div className={ this.state.isModalOpen ? "modal is-active" : "modal" }>
           <div className="modal-background" onClick={this.closeModal}></div>
           <div className="modal-content">
-            <h5 className="subtitle is-5">{this.state.userMessage}</h5>
+            <h5 className="subtitle is-5 about-subtitle">{this.state.userMessage}</h5>
           </div>
           <button className="modal-close is-large" aria-label="close" onClick={this.closeModal}></button>
         </div>
 
         <ReviewsList />
-      </div>
+      </section>
     );
   }
 }
