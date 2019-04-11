@@ -51,9 +51,11 @@ User stories and wireframes can be found at this project's [Trello board](https:
 
 ## Unsolved Problems
 - Broswer history
+
 Currently, the URL for the region and country container components remain the same at "/region" and "/country" no matter what information is dynamically populated into the component.  This prevents the user from successfully going back and forward through their browser's history.
 
 - User security
+
 A user's unique ID and username are stored in the Redux store and in some components' local state unencrypted.
 
 
