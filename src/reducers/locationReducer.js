@@ -1,4 +1,3 @@
-// [] REFRESH OF A PAGE CHANGES STATE BACK TO AFRICA, EVEN IF ON /COUNTRY PAGE AND THAT BREAKS EVERYTHING
 const defaultState = {
   id: 1,
   name: 'Africa'

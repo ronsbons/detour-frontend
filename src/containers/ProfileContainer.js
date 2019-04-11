@@ -143,7 +143,6 @@ class ProfileContainer extends Component {
       <section className="columns is-multiline profile-container">
         <div className="column is-one-quarter is-full-mobile">
           <div className="user-icon">
-            {/* [] CHANGE TO FIRST LETTER OF USER'S USERNAME */}
             <h2 className="subtitle is-2 username-icon">{this.state.user.username.charAt(0)}</h2>
           </div>
 
@@ -182,7 +181,6 @@ class ProfileContainer extends Component {
           </div>  {/* end of modal div */}
 
           <div className="user-stats">
-            {/* [] CHANGE TO DYNAMICALLY POPULATED # OF SAVED TOURS AND # OF REVIEWS */}
             <p>{this.state.savedTours.length} Saved Tours</p>
             <p>{this.state.reviews.length} Reviews</p>
           </div>

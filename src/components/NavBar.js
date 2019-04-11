@@ -27,7 +27,7 @@ class NavBar extends Component {
     event.preventDefault();
     console.log('in handleLogout');
     // clears localStorage of token
-    localStorage.clear();
+    localStorage.removeItem('token');
     // dispatches action userLogOut
     this.props.userLogOut();
     // [] CREATES AN INFINITE LOOP B/C STATE STAYS TRUE

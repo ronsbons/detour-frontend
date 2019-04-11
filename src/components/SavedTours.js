@@ -17,8 +17,6 @@ class SavedTours extends Component {
           <div className="card-image">
             <figure className="image is-128x128">
               <a href={this.props.tour.link}>
-                {/* [] MAKE IMAGE COMPANY LOGO FOR NOW */}
-                {/* [] WANT TO MAKE IMAGE THE COUNTRY PHOTO. HAVE TO POPULATE COUNTRY INFO FROM SAVED_TOUR_ID.PRIMARY_COUNTRY_ID */}
                 <img src={this.props.tour.company} alt={this.props.tour.name} />
               </a>
             </figure>
