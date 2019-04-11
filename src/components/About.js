@@ -13,7 +13,7 @@ class About extends Component {
 
           <div className="column is-half-mobile">
             <figure className="image is-128x128">
-              <img src="./images/G Adventures logo.png" alt="G Adventures logo" />
+              <img src="./images/g-adventures-logo.png" alt="G Adventures logo" />
             </figure>
           </div>
 
@@ -25,7 +25,7 @@ class About extends Component {
 
           <div className="column is-half-mobile">
             <figure className="image is-128x128">
-              <img src="./images/topdeck-travel-logo.png" alt="Topdeck logo" />
+              <img src="./images/topdeck-logo.png" alt="Topdeck logo" />
             </figure>
           </div>
         </div>
