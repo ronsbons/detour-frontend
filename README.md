@@ -1,6 +1,6 @@
 # ![](public/images/DeTour-logo.png)
 # DeTour
-![](public/images/Screen Shot 2019-04-11 at 10.08.52 AM.png)
+<img src="https://github.com/ronsbons/detour-frontend/blob/master/public/images/Screen%20Shot%202019-04-11%20at%2010.08.52%20AM.png" alt="DeTour landing page" width="500px">
 
 ## Overview
 [DeTour](http://protected-ravine-34035.herokuapp.com/) is a website where young travelers can compare tour offerings from the top companies offering group travel for 18-35 year olds.  Users can view tours by country and see a side-by-side of key information like which countries are visited and starting costs.  Users can choose to create an account to leave reviews sharing their experiences from a particular tour and to save tours they're interested in to view later.
