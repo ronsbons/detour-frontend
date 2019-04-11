@@ -58,6 +58,9 @@ Currently, the URL for the region and country container components remain the sa
 
 A user's unique ID and username are stored in the Redux store and in some components' local state unencrypted.
 
+- User-facing error handling
+
+For example, upon user registration, if a user were to type a special character in their username that doesn't match the regex set in the backend, the sign up form will not submit, but there is no message saying why.
 
 ## Future Features
 - Admin frontend to add/edit/delete additional countries and tours
