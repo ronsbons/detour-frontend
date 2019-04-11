@@ -1,4 +1,4 @@
-# DeTour
+# ![](public/images/DeTour-logo.png) DeTour
 
 ## Overview
 
