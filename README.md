@@ -64,6 +64,7 @@ For example, upon user registration, if a user were to type a special character 
 
 ## Future Features
 - Admin frontend to add/edit/delete additional countries and tours
+- Improvements on frontend scalability for additional data
 - Improvements on responsive and accessible styling
 - Image compression to improve page loading
 - User authorization package, such as PassportJS
