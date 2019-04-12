@@ -68,7 +68,7 @@ For example, upon user registration, if a user were to type a special character 
 - Image compression to improve page loading
 - User authorization package, such as PassportJS
 - Improved error handling and testing
-
+- Search bar to allow users to search for countries
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
