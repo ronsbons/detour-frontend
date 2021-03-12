@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const endPoint = 'http://localhost:3001/reviews';
-const endPoint = 'http://sheltered-shore-25414.herokuapp.com/reviews';
+const endPoint = 'https://sheltered-shore-25414.herokuapp.com/reviews';
 
 class ReviewModel {
   static getReviewsByCountry(countryId) {

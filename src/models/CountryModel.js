@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const endPoint = 'http://localhost:3001/country';
-const endPoint = 'http://sheltered-shore-25414.herokuapp.com/country';
+const endPoint = 'https://sheltered-shore-25414.herokuapp.com/country';
 
 class CountryModel {
   static getAllCountries() {
